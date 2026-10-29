@@ -69,7 +69,7 @@ def main():
         import app
         app.MeasurementJob=PrototypeJob
         ui_args=SimpleNamespace(sweep=frequencies,position='normal',pair_id=None,confirm_zero_before_move=False,
-            output=output,budget=20.,prototype_mode=True)
+            output=output,budget=20.,prototype_mode=True,live_controls=True)
         print('UI_READY pages=3',calibration.document['id'],flush=True)
         app.panel_loop(hardware,overlay,ui_args,profile,Settings(),calibration,
             {'temperature_c':None,'soc_fraction':None},model)

@@ -250,7 +250,7 @@ class PanelTests(unittest.TestCase):
         p=Painter()
         p.render(dict(status='IDLE',result=None),1,selected_hz=17.8,sweep=True,position='A')
         rendered=''.join(row[-1] for row in p.bounds)
-        for label in ('设置','单点频率','17.8 Hz','测量模式','扫频','接法位置','位置 A','标定：未标定'):
+        for label in ('设置','单点频率','17.8 Hz','测量模式','扫频','接法位置','位置 A'):
             self.assertIn(label,rendered)
         self.assertEqual(action((680,170),1,False),('frequency',1))
         self.assertEqual(action((500,170),1,False),('frequency',-1))

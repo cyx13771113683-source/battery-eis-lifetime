@@ -69,6 +69,13 @@ class Painter:
             region[:]=(region.astype(np.uint16)*(255-alpha)+np.array(color,dtype=np.uint16)*alpha+127)//255
             x+=w
 
+    def _center_text(self,frame,rect,text,size=20,color=TEXT):
+        x,y,x1,y1=rect;text=str(text)
+        text=''.join(c if '%d_%d'%(size,ord(c)) in self.atlas else '?' for c in text)
+        while text and self.width(text,size)>x1-x:text=text[:-1]
+        self.text(frame,x+(x1-x-self.width(text,size))//2,y+(y1-y-size-8)//2,
+                  text,size,color,width=x1-x)
+
     def button(self,frame,rect,label,active=False):
         x,y,x1,y1=rect;frame[y:y1,x:x1]=SURFACE if active else DARK
         frame[y:y+2,x:x1]=CYAN if active else BORDER;frame[y1-2:y1,x:x1]=CYAN if active else BORDER
@@ -76,17 +83,21 @@ class Painter:
 
     def render(self,state,page=0,selected_hz=80,sweep=False,position='normal',calibrated=False,frequencies=DEFAULT_SWEEP,history=None,record=None):
         if page not in (0,1,2):raise ValueError('operator UI has exactly three pages')
-        live_busy=state.get('status') in BUSY
+        live_busy=state.get('status') in BUSY or state.get('single_running') or state.get('lifetime_running')
         if record is not None:
             state=dict(record,viewing_record=True)
             calibrated=record.get('calibrated',False)
         frame=np.empty((600,800,3),dtype=np.uint8);frame[:]=BG;frame[:70]=DARK;self.bounds=[]
+        if page==2 and (history or {}).get('selected') is not None:
+            frame[:]=BG
+            self.history(frame,history)
+            return frame
         self.text(frame,20,20,'电池阻抗',24,width=210)
         header_frequency=(history or {}).get('selected') if page==2 else None
         header_frequency=(header_frequency or state).get('frequency_hz',selected_hz)
         self.text(frame,300,22,('%g Hz'%header_frequency),24,CYAN,width=200)
         busy=live_busy
-        self.button(frame,(646,10,784,60),'取消' if busy else '已停止',busy)
+        if busy:self.button(frame,(646,10,784,60),'取消',True)
         for index,label in enumerate(NAV):self.button(frame,NAV_RECTS[index],label,index==page)
         result=state.get('result')
         def value(key,fmt,factor=1):
@@ -104,54 +115,51 @@ class Painter:
             self.graph(frame,(404,180,784,384),'相位 / °',points,'phase_deg')
             frame[398:522,16:784]=AI;frame[398:522,16:21]=BLUE
             health=health_values(state.get('ai'))
-            self.text(frame,36,405,'寿命结果',24,BLUE,width=160)
-            self.text(frame,206,405,health['soh'],24,BLUE,width=330)
-            self.text(frame,36,445,health['capacity'],20,MUTED,width=235)
-            self.text(frame,548,408,health['rul'],20,BLUE,width=216)
-            context=state.get('context') or {}
-            temperature=context.get('temperature_c')
-            self.text(frame,290,445,'温度 '+('%.1f°C'%temperature if number(temperature) else '未知'),20,MUTED,width=235)
+            self.text(frame,36,405,'寿命结果：',24,BLUE,width=160)
+            self._center_text(frame,(16,398,784,522),health['soh'].replace('SOH健康度 ','SOH '),40,BLUE)
             # The former status page is gone, so home carries status and reason.
             error=state.get('error')
             if error:
                 self.text(frame,36,483,error,20,ORANGE,width=490)
-            else:
+            elif busy:
                 label=STATUS.get(state.get('status','IDLE'),'待核验')
-                if busy:label+=' %d/%d'%(state.get('completed',0),state.get('total',0))
-                if record is not None:label='历史记录'
-                calibration_label=('已校正' if calibrated or state.get('ratio_corrected') else '未校正') if state.get('prototype_mode') else ('已标定' if calibrated else '未标定')
-                self.text(frame,36,483,label+' / '+calibration_label+' / '+source_label(state.get('source')),20,width=490)
+                label+=' %d/%d'%(state.get('completed',0),state.get('total',0))
+                self.text(frame,36,483,label,20,width=490)
             if record is not None:self.button(frame,(548,458,764,514),'返回实时',True)
+            elif state.get('live_controls') and not state.get('lifetime_running'):
+                self.button(frame,(548,458,764,514),'寿命测量',True)
             elif not busy:self.button(frame,(548,458,764,514),'开始测量',True)
             else:
                 self.text(frame,548,470,'%d%%'%round(100*state.get('progress',0)),24,CYAN,width=210)
-            tag='历史' if record is not None else {'simulation':'仿真','public_dataset_replay':'回放'}.get(state.get('source'))
-            if tag:self.text(frame,230,22,tag,20,ORANGE,width=65)
         elif page==1:
             self.text(frame,20,84,'设置',24)
-            self.text(frame,520,87,('校正：'+('已载入' if calibrated else '--')) if state.get('prototype_mode') else '标定：'+('已标定' if calibrated else '未标定'),20,CYAN,width=264)
             frame[120:248,16:784]=SURFACE
             self.text(frame,36,130,'单点频率',20,MUTED,width=350)
             self.text(frame,36,166,'%g Hz'%selected_hz,32,CYAN,width=350)
             self.button(frame,(420,142,578,202),'上一点');self.button(frame,(600,142,764,202),'下一点')
             self.text(frame,36,212,' / '.join('%g'%f for f in frequencies)+' Hz',20,MUTED,width=720)
+            if state.get('live_controls'):
+                label='单点暂停' if state.get('single_paused') else '寿命测量中' if state.get('lifetime_running') else '停止单点' if state.get('single_running') else '开始单点'
+                self.button(frame,(16,284,784,368),label,state.get('single_running',False))
+                self.notice(frame,state.get('ui_notice'))
+                return frame
             self.text(frame,36,258,'测量模式',20,MUTED,width=350)
             self.button(frame,(16,284,392,336),'单点',not sweep)
             self.button(frame,(404,284,784,336),'扫频',sweep)
-            if state.get('prototype_mode'):
-                self.text(frame,36,362,'校正参数：电脑端维护',24,MUTED,width=720)
-                self.text(frame,36,436,'正常四线接法',20,MUTED,width=480)
-            else:
+            if not state.get('prototype_mode'):
                 self.text(frame,36,346,'接法位置',20,MUTED,width=350)
                 for rect,key,label in [((16,372,260,424),'normal','正常'),((278,372,522,424),'A','位置 A'),((540,372,784,424),'B','位置 B')]:
                     self.button(frame,rect,label,position==key)
-                self.text(frame,36,436,'外置标准件始终串联正极',20,MUTED,width=480)
-                self.text(frame,36,468,'DA0=0 后仅移动 S+',20,MUTED,width=480)
             self.button(frame,(540,438,764,490),'开始测量',True)
         else:
             self.history(frame,history or {})
         notice=state.get('ui_notice')
         if notice and record is None:
+            self.notice(frame,notice)
+        return frame
+
+    def notice(self,frame,notice):
+        if notice:
             frame[:]=frame//2
             frame[176:430,80:720]=DARK
             frame[176:179,80:720]=ORANGE
@@ -160,7 +168,6 @@ class Painter:
             self.text(frame,112,286,notice['detail'],20,MUTED,width=576)
             self.text(frame,112,318,notice.get('error',''),20,MUTED,width=576)
             self.button(frame,(280,354,520,406),'知道了',True)
-        return frame
 
     def line(self,frame,x0,y0,x1,y1,color,width=1):
         count=max(abs(int(x1)-int(x0)),abs(int(y1)-int(y0)))+1
@@ -173,8 +180,7 @@ class Painter:
     def graph(self,frame,rect,title,points,key):
         x0,y0,x1,y1=rect;frame[y0:y1,x0:x1]=SURFACE
         self.text(frame,x0+14,y0+8,title,20,MUTED,width=280)
-        self.text(frame,x1-66,y0+8,'%d点'%len(points),20,MUTED,width=60)
-        left,right,top,bottom=x0+68,x1-18,y0+53,y0+155
+        left,right,top,bottom=x0+68,x1-18,y0+53,y1-49
         frequencies=[p['frequency_hz'] for p in points]
         xmin=min([2.]+frequencies);xmax=max([100.]+frequencies)
         if key=='magnitude_mohm':
@@ -214,65 +220,54 @@ class Painter:
     def history(self,frame,history):
         selected=history.get('selected')
         if selected is not None:
-            self.text(frame,20,85,'记录详情',24,width=350)
-            context=selected.get('context') or {}
-            temperature=context.get('temperature_c');soc=context.get('soc_fraction')
-            self.text(frame,36,126,'电池 '+selected['cell_id'],24,CYAN,width=490)
-            self.text(frame,548,126,'温度 '+('%.1f°C'%temperature if number(temperature) else '未知'),20,MUTED,width=216)
-            self.text(frame,36,163,selected['utc'][:19]+' UTC / '+source_label(selected.get('source')),20,MUTED,width=490)
-            self.text(frame,548,163,'SOC '+('%.1f%%'%(100*soc) if number(soc) and 0<=soc<=1 else '未知'),20,MUTED,width=216)
             health=health_values(selected.get('ai'))
-            for rect,label,value in [((16,210,392,306),'健康状态',health['soh']),((404,210,784,306),'剩余寿命',health['rul']),
-                    ((16,318,392,408),'容量',health['capacity']),((404,318,784,408),'测量状态',
-                    record_status_label(selected))]:
-                x,y,x1,y1=rect;frame[y:y1,x:x1]=SURFACE
-                self.text(frame,x+20,y+8,label,20,MUTED,width=x1-x-40)
-                self.text(frame,x+20,y+42,value,24,CYAN,width=x1-x-40)
-            result=selected.get('result') or {};mag=result.get('magnitude_ohm');phase=result.get('phase_deg')
-            self.text(frame,36,420,'|Z| '+('%.3f mΩ'%(mag*1000) if number(mag) else '--')+
-                ' / '+('%.2f°'%phase if number(phase) else '--')+' / '+record_calibration_label(selected),20,width=728)
-            self.button(frame,(16,466,220,518),'返回列表')
-            self.button(frame,(548,466,784,518),'查看曲线',True)
+            soh=health['soh'].replace('SOH健康度 ','SOH：').replace('SOH ','SOH：')
+            self.button(frame,(16,16,144,68),'返回')
+            self._center_text(frame,(160,16,784,84),soh,40,BLUE)
+            points=spectrum_points(selected.get('spectrum') or ([selected['result']] if selected.get('result') else []))
+            self.graph(frame,(16,116,392,552),'幅值 |Z| / mΩ',points,'magnitude_mohm')
+            self.graph(frame,(404,116,784,552),'相位 / °',points,'phase_deg')
             return
         self.text(frame,20,85,'测量记录',24,width=350)
         self.text(frame,524,87,'共 %d 条'%history.get('count',0),20,MUTED,width=250)
-        for x,label in ((36,'时间 UTC'),(218,'电池'),(438,'幅值 mΩ'),(606,'SOH')):
-            self.text(frame,x,120,label,20,MUTED,width=165)
+        for column,label in enumerate(('序号','幅值 mΩ','SOH')):
+            self._center_text(frame,(16+256*column,114,272+256*column,146),label,20,MUTED)
         for index,row in enumerate(history.get('rows',[])[:4]):
             y=150+index*72;frame[y:y+64,16:784]=SURFACE
-            utc=row['utc'];stamp=utc[5:10]+' '+utc[11:16] if len(utc)>=16 else utc
             value=(row.get('result') or {}).get('magnitude_ohm')
-            self.text(frame,36,y+4,stamp,20,width=175)
-            self.text(frame,218,y+4,row['cell_id'],20,CYAN,width=210)
-            self.text(frame,438,y+4,'%.3f'%(value*1000) if number(value) else '--',20,width=155)
+            self._center_text(frame,(16,y,272,y+64),str(history.get('page',0)*4+index+1))
+            self._center_text(frame,(272,y,528,y+64),'%.3f'%(value*1000) if number(value) else '--')
             soh=health_values(row.get('ai'))['soh']
             if row.get('prototype_mode') and soh.startswith('SOH健康度 '):soh=soh[len('SOH健康度 '):]
-            self.text(frame,606,y+4,soh,20,BLUE,width=164)
-            tag=record_status_label(row)+' / '+source_label(row.get('source'))
-            self.text(frame,218,y+33,tag,20,MUTED,width=430)
-            self.text(frame,682,y+33,'详情',20,MUTED,width=85)
+            self._center_text(frame,(528,y,784,y+64),soh,20,BLUE)
+            self._center_text(frame,(708,y,776,y+64),'详情',20,MUTED)
         if not history.get('rows'):self.text(frame,280,260,'暂无测量记录',24,MUTED,width=350)
         self.button(frame,(16,466,194,518),'上一页')
         self.text(frame,300,476,'%d / %d 页'%(history.get('page',0)+1,history.get('pages',1)),24,width=245)
         self.button(frame,(606,466,784,518),'下一页')
 
-def action(point,page,busy,record_detail=False,viewing_record=False,notice=False):
+def action(point,page,busy,record_detail=False,viewing_record=False,notice=False,live_controls=False,lifetime_running=False):
     x,y=point
+    if page==2 and record_detail:
+        return ('record_back',None) if 16<=x<144 and 16<=y<68 else None
     if notice:return ('dismiss_notice',None) if 280<=x<520 and 354<=y<406 else None
     for index,(x0,y0,x1,y1) in enumerate(NAV_RECTS):
         if x0<=x<x1 and y0<=y<y1:return ('page',index)
     if 646<=x<784 and 10<=y<60 and busy:return ('cancel',None)
     if page==2:
-        if record_detail:
-            if 16<=x<220 and 466<=y<518:return ('record_back',None)
-            if 548<=x<784 and 466<=y<518:return ('record_curve',None)
-        else:
-            if 16<=x<194 and 466<=y<518:return ('record_page',-1)
-            if 606<=x<784 and 466<=y<518:return ('record_page',1)
-            if 16<=x<784 and 150<=y<430 and (y-150)%72<64:return ('record_open',(y-150)//72)
+        if 16<=x<194 and 466<=y<518:return ('record_page',-1)
+        if 606<=x<784 and 466<=y<518:return ('record_page',1)
+        if 16<=x<784 and 150<=y<430 and (y-150)%72<64:return ('record_open',(y-150)//72)
         return None
     if page==0 and viewing_record:
         return ('return_live',None) if 548<=x<764 and 458<=y<514 else None
+    if live_controls:
+        if page==0 and not lifetime_running and 536<=x<776 and 446<=y<526:return ('lifetime',None)
+        if page==1 and not lifetime_running:
+            if 16<=x<784 and 272<=y<380:return ('toggle_single',None)
+            if 408<=x<590 and 130<=y<214:return ('frequency',-1)
+            if 590<=x<776 and 130<=y<214:return ('frequency',1)
+        return None
     if busy:return ('cancel',None) if 646<=x<784 and 10<=y<60 else None
     if page==0 and 548<=x<764 and 458<=y<514:return ('start',None)
     if page==1:

@@ -66,6 +66,14 @@ def health_values(ai):
     return dict(soh=soh_text, capacity=capacity_text, rul=rul_text)
 
 
+def has_soh(ai):
+    """Only a permitted, finite SOH percentage belongs in operator history."""
+    if not isinstance(ai,dict):return False
+    accepted=ai.get('status') in ('prototype_result','research_estimate') or (
+        ai.get('status')=='validated_estimate' and ai.get('valid_for_board') is True)
+    return accepted and number(ai.get('soh')) and 0<=ai['soh']<=1
+
+
 def spectrum_points(results):
     """Average repeated complex measurements, never average wrapped phases."""
     groups = {}
@@ -90,11 +98,11 @@ def spectrum_points(results):
 
 class RecordIndex:
     """Index names first; decode JSON only for requested rows, with mtime cache."""
-    def __init__(self, root, page_size=4):
+    def __init__(self, root, page_size=4, soh_only=False):
         self.root = Path(root)
         self.page_size = page_size
         if type(page_size) is not int or page_size < 1: raise ValueError('positive page size required')
-        self.entries = []; self.cache = OrderedDict()
+        self.entries = []; self.cache = OrderedDict();self.soh_only=soh_only;self._eligibility={}
         self.refresh()
 
     def refresh(self):
@@ -105,10 +113,22 @@ class RecordIndex:
                     if folder.is_dir(follow_symlinks=False):
                         path = Path(folder.path)
                         if (path / 'session.json').is_file() and (path / 'summary.json').is_file():
-                            entries.append(path)
+                            if not self.soh_only or self._has_soh(path):entries.append(path)
         self.entries = sorted(entries, key=lambda p: p.name, reverse=True)
         active = set(self.entries)
         self.cache = OrderedDict((path, value) for path, value in self.cache.items() if path in active)
+        self._eligibility={path:value for path,value in self._eligibility.items() if path.is_dir()}
+
+    def _has_soh(self,path):
+        try:
+            stats=[(path/name).stat() for name in ('session.json','summary.json')]
+            stamp=tuple((stat.st_mtime_ns,stat.st_size) for stat in stats)
+            previous=self._eligibility.get(path)
+            if previous is not None and previous[0]==stamp:return previous[1]
+            eligible=has_soh(self.load(path).get('ai'))
+            self._eligibility[path]=(stamp,eligible)
+            return eligible
+        except (OSError,ValueError,TypeError):return False
 
     @property
     def page_count(self):
@@ -158,7 +178,7 @@ class RecordIndex:
 
 class RecordBrowser:
     def __init__(self, root):
-        self.index = RecordIndex(root)
+        self.index = RecordIndex(root,soh_only=True)
         self.page = 0; self.selected = None; self.chart_record = None
         self._view = None
 

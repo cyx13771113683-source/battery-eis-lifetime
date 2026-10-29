@@ -71,8 +71,8 @@ class PrototypePanelFlowTests(unittest.TestCase):
                     rows=RecordIndex(directory).page(0)
                     index=next(i for i,r in enumerate(rows) if r['status']=='DONE')
                     point=(100,170+72*index);stage[0]=5
-                elif stage[0]==5:point=(700,490);stage[0]=6
-                elif stage[0]==6:point=(700,490);stage[0]=7
+                elif stage[0]==5:point=(80,42);stage[0]=6
+                elif stage[0]==6:point=(80,565);stage[0]=7
                 elif stage[0]==7:point=(700,490);stage[0]=8
                 elif stage[0]==8 and state=='DONE' and done:
                     stage[0]=9;next(iter(handlers.values()))(None,None)
@@ -93,6 +93,7 @@ class PrototypePanelFlowTests(unittest.TestCase):
         render_original=Painter.render
         def render(painter,state,*args,**kwargs):
             frames.append(dict(status=state['status'],page=args[0],record=kwargs.get('record') is not None,
+                               detail=(kwargs.get('history') or {}).get('selected') is not None,
                                soh=state.get('ai',{}).get('soh')))
             return render_original(painter,state,*args,**kwargs)
         video=types.ModuleType('pynq.lib.video');video.VideoMode=lambda *args:args
@@ -134,7 +135,7 @@ class PrototypePanelFlowTests(unittest.TestCase):
                 self.assertEqual(record_status_label(row),'测量完成')
                 self.assertEqual(record_calibration_label(row),'已校正')
                 self.assertFalse(row['measurement_valid'])
-            self.assertTrue(any(f['record'] for f in frames))
+            self.assertTrue(any(f['detail'] for f in frames))
             self.assertTrue(any(f['page']==2 for f in frames))
 
     def test_record_labels_keep_formal_validity_separate(self):

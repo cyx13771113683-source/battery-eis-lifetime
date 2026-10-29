@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import signal
 import time
+from copy import deepcopy
 from configuration import HardwareProfile,Settings,DEFAULT_SWEEP
 from calibration import Calibration,from_reference,ab_check,export_ab_session
 from calibration_plan import reference_template,calibration_coverage,CALIBRATION_FREQUENCIES
@@ -72,6 +73,18 @@ def panel_loop(hardware,overlay,args,profile,settings,calibration,metadata,model
     alive=True;next_scan=0
     browser=RecordBrowser(args.output);history_seen=None
     first_frame=True;ui_started=None;reported_output=None
+    live=bool(getattr(args,'live_controls',False));controller=None;last_view=None;revision=-1
+    if live:
+        from live_control import LiveController
+        def create_job(frequencies):
+            hardware.stop()
+            if position!='normal' and (not args.pair_id or not args.confirm_zero_before_move):
+                raise ValueError('A/B requires pair-id and move confirmation')
+            return MeasurementJob(hardware,profile,settings,frequencies,args.output,calibration,
+                dict(metadata,pair_id=args.pair_id,zero_ack_before_move=args.confirm_zero_before_move),
+                position=position,model=model,budget_s=args.budget,
+                current_zero=getattr(args,'current_zero_reference',None))
+        controller=LiveController(create_job,model,args.output,args.sweep,selected)
     state=dict(status='IDLE',result=None,frequency_hz=selected,source='hardware',ai=model.reject('awaiting_measurement'))
     def finish(_s,_f):
         nonlocal alive
@@ -79,14 +92,17 @@ def panel_loop(hardware,overlay,args,profile,settings,calibration,metadata,model
     signal.signal(signal.SIGINT,finish);signal.signal(signal.SIGTERM,finish)
     try:
         while alive:
-            if job:
+            if live:
+                controller.tick();job=controller.job;state=controller.snapshot()
+                if controller.revision!=revision:browser.refresh();revision=controller.revision
+            elif job:
                 state=job.snapshot()
                 state['spectrum']=[dict(row) for row in job.results]
                 if state['status'] in ('DONE','UNVERIFIED','ERROR','TIMEOUT','CANCELLED') and history_seen!=state['output']:
                     browser.refresh();history_seen=state['output']
             state['context']=metadata
             state['prototype_mode']=bool(getattr(args,'prototype_mode',False))
-            busy=state.get('status') in BUSY
+            busy=state.get('status') in BUSY or state.get('single_running') or state.get('lifetime_running')
             if touch is None and time.monotonic()>=next_scan:
                 next_scan=time.monotonic()+2
                 try:touch=TouchReader.autodetect(800,600)
@@ -96,10 +112,13 @@ def panel_loop(hardware,overlay,args,profile,settings,calibration,metadata,model
                     point,changed=touch.poll(.01)
                     request=action(point,page,busy,record_detail=browser.selected is not None,
                         viewing_record=browser.chart_record is not None,
-                        notice=bool(state.get('ui_notice'))) if changed and touch.just_pressed and point is not None else None
+                        notice=bool(state.get('ui_notice')),live_controls=live,
+                        lifetime_running=state.get('lifetime_running',False)) if changed and touch.just_pressed and point is not None else None
                     if request:
                         key,value=request
-                        if key=='dismiss_notice':state.pop('ui_notice',None)
+                        if key=='dismiss_notice':
+                            state.pop('ui_notice',None)
+                            if live:controller.state.pop('ui_notice',None)
                         elif key=='page':
                             page=value
                             if page==2:browser.refresh()
@@ -109,16 +128,30 @@ def panel_loop(hardware,overlay,args,profile,settings,calibration,metadata,model
                         elif key=='record_curve':
                             if browser.selected is not None:browser.chart_record=browser.selected;page=0
                         elif key=='return_live':browser.chart_record=None
-                        elif key=='cancel' and job:job.cancel()
+                        elif key=='cancel':
+                            if live:controller.cancel()
+                            elif job:job.cancel()
                         elif key=='frequency':
                             choices=args.sweep
                             index=min(range(len(choices)),key=lambda k:abs(choices[k]-selected))
                             selected=choices[max(0,min(len(choices)-1,index+value))]
+                            if live:controller.select(selected)
                         elif key=='sweep':sweep=value
                         elif key=='position':
                             if not getattr(args,'prototype_mode',False):position=value
-                        elif key=='start':
+                        elif key in ('start','toggle_single','lifetime'):
                             clicked=time.monotonic()
+                            if live:
+                                if key=='toggle_single':controller.toggle_single()
+                                else:
+                                    controller.request_lifetime();ui_started=clicked;reported_output=None
+                                controller.tick();job=controller.job;state=controller.snapshot()
+                                state.update(context=metadata,prototype_mode=bool(getattr(args,'prototype_mode',False)))
+                                if state.get('status')=='ERROR' and job is None:
+                                    controller.state['ui_notice']=start_notice(state.get('error'))
+                                    state['ui_notice']=controller.state['ui_notice']
+                                print('UI_CONTROL',key,'single='+str(controller.single_running),flush=True)
+                                continue
                             try:
                                 hardware.stop()
                                 if position!='normal' and (not args.pair_id or not args.confirm_zero_before_move):
@@ -139,20 +172,26 @@ def panel_loop(hardware,overlay,args,profile,settings,calibration,metadata,model
                                     ai=model.reject('start_failed'),ui_notice=start_notice(str(exc)))
                 except OSError:
                     touch.close();touch=None
-            frame=hdmi.newframe()
-            np.asarray(frame)[:]=painter.render(state,page,selected,sweep,position,calibration is not None,args.sweep,
-                history=browser.view() if page==2 else None,record=browser.chart_record if page==0 else None)
-            hdmi.writeframe(frame)
-            if first_frame:
-                print('UI_FRAME_READY pages=3',flush=True);first_frame=False
-            if (job and ui_started is not None and page==0 and browser.chart_record is None
-                    and state.get('status') in ('DONE','UNVERIFIED','ERROR','TIMEOUT','CANCELLED')
-                    and state.get('output')!=reported_output):
-                print('UI_RESULT',state['status'],'click_to_frame_s=%.3f'%(time.monotonic()-ui_started),
-                      'source='+str(state.get('source')),state.get('output'),flush=True)
-                reported_output=state.get('output')
-            time.sleep(.04)
+            history=browser.view() if page==2 else None;record=browser.chart_record if page==0 else None
+            view=(state,page,selected,sweep,position,calibration is not None,args.sweep,history,record)
+            if not live or view!=last_view:
+                frame=hdmi.newframe()
+                np.asarray(frame)[:]=painter.render(state,page,selected,sweep,position,calibration is not None,args.sweep,
+                    history=history,record=record)
+                hdmi.writeframe(frame)
+                if live:last_view=deepcopy(view)
+                if first_frame:
+                    print('UI_FRAME_READY pages=3',flush=True);first_frame=False
+                result_state=(controller.last_life or {}) if live else state
+                if (ui_started is not None and page==0 and record is None
+                        and result_state.get('status') in ('DONE','UNVERIFIED','ERROR','TIMEOUT','CANCELLED')
+                        and result_state.get('output')!=reported_output):
+                    print('UI_RESULT',result_state['status'],'click_to_frame_s=%.3f'%(time.monotonic()-ui_started),
+                          'source='+str(result_state.get('source')),result_state.get('output'),flush=True)
+                    reported_output=result_state.get('output')
+            time.sleep(.004 if live else .04)
     finally:
+        if live:controller.cancel();job=controller.job
         if job and job.thread and job.thread.is_alive():job.cancel();job.thread.join(timeout=2)
         hardware.stop()
         if touch:touch.close()
