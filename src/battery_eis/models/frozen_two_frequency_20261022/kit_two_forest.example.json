@@ -1,0 +1,22 @@
+{
+  "source_domain": "kit_public_dataset",
+  "chemistry": "LG_18650HG2_NMC_SiO_3Ah",
+  "soc_percent": 50,
+  "temperature_C": 25,
+  "frequency_hz": [
+    2.1653249859809875,
+    17.811544239521027
+  ],
+  "z_real_ohm": [
+    0.01851142856347541,
+    0.018056036788126444
+  ],
+  "z_imag_ohm": [
+    0.0004086190435540999,
+    0.0006184570049530954
+  ],
+  "impedance_unit": "ohm",
+  "convention": "passive_Z_re_plus_j_im",
+  "measurement_valid": true,
+  "calibration_valid": true
+}

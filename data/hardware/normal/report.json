@@ -1,0 +1,1066 @@
+{
+  "source": "hardware",
+  "scope": "restricted AC research diagnosis, not production measurement",
+  "host_date": "2026-10-28 Asia/Shanghai",
+  "board_utc": "2025-05-05T17:14:06.204941+00:00",
+  "boot_before": "8189816c-451b-464c-b38d-e18ff713cc97",
+  "fixture": "normal four-wire after removing positive 10mohm; Fplus and Splus directly on cell positive, Fminus/Sminus directly on negative; user confirmed",
+  "position": "without_positive_standard",
+  "pair_id": "positive-10mohm-20261028",
+  "standard_nominal_ohm": null,
+  "cell_id": "Dyson-20700-user-20261026",
+  "calibration_created": false,
+  "calibrated": false,
+  "soh": null,
+  "rul": null,
+  "profile_flags_modified": false,
+  "driver_and_bitstream_modified": false,
+  "captures": [
+    {
+      "index": 0,
+      "kind": "zero",
+      "drive": false,
+      "settings": {
+        "frequency_hz": 80.0,
+        "capture_s": 0.2,
+        "settle_s": 0.2,
+        "repeats": 2,
+        "gate_high_code": 65535
+      },
+      "binding": {
+        "hardware_id": "Battery_EIS_REV_A",
+        "board_serial": "pynq-ssh-192.168.2.99-serial-unread",
+        "module_serial": "existing-ADDA-physical-serial-unread",
+        "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+        "overlay_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+        "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+        "adc_clock_hz": 7680000,
+        "adc_reference_v": 2.5,
+        "dac_reference_v": 5.0,
+        "r_shunt_ohm": 0.1,
+        "voltage_divider": 1.249,
+        "voltage_dc_scale": 1.0,
+        "current_dc_scale": 1.0,
+        "dc_reference_source": "nominal only",
+        "r_load_nominal_ohm": 10.0,
+        "schema": "battery-eis-rev-a/3",
+        "abi": 48643,
+        "assembly_id": "rev-a-final-20261021-r1-10-r2-r100-r5-2490",
+        "drate": 240,
+        "pga": 1,
+        "buffer": false,
+        "mux": [
+          1,
+          35
+        ],
+        "slot_cycles": 32768,
+        "timestamp": "DRDY-ready-100MHz",
+        "waveform": "unipolar-square-50pct",
+        "gate_high_code": 65535,
+        "phase_increment": 3436,
+        "raw_capacity_samples": 16384,
+        "capture_ticks": 20000000,
+        "settle_ticks": 20000000,
+        "estimator": "dc-sin-cos-moments-v1"
+      },
+      "meta": {
+        "sequence": 1,
+        "status": 3187868053,
+        "faults": 0,
+        "ticks": 40000000,
+        "adc_registers": [
+          4026532144,
+          16774799,
+          4527442,
+          32768
+        ],
+        "configuration": [
+          3436,
+          20000000,
+          20000000,
+          65535
+        ],
+        "source": "hardware",
+        "timestamp_convention": "conversion-ready DRDY; filter aperture not directly measured"
+      },
+      "raw_file": "00_zero_raw.csv",
+      "raw_sha256": "0ddf7f8a641bd9b99ba5aa8c3207e7274346b6278c9331e794829a83fbfc7ec8",
+      "capture_file": "00_zero_capture.json",
+      "production_zero_diagnosis": {
+        "kind": "zero_drive_preflight",
+        "policy": "absolute-1mA-v1",
+        "valid": false,
+        "reasons": [
+          "absolute_zero_current_over_1mA"
+        ],
+        "offset_applied_a": 0.0,
+        "physical_leakage_excluded": false,
+        "scope": "apparent ADC current; correction is not proof of zero physical current",
+        "counts": [
+          305,
+          305
+        ],
+        "voltage_v": 3.4376926310790386,
+        "raw_mean_a": 0.003121661730323396,
+        "raw_abs_max_a": 0.0034689907394636556,
+        "raw_min_a": 0.0026583674738845198,
+        "raw_max_a": 0.0034689907394636556,
+        "noise_std_a": 0.00012968762208347533,
+        "residual_peak_a": 0.00046329425643887616,
+        "half_window_drift_a": -2.4026907874179822e-05,
+        "leakage_a": 0.003121661730323396
+      }
+    },
+    {
+      "index": 1,
+      "kind": "ac",
+      "drive": true,
+      "settings": {
+        "frequency_hz": 80.0,
+        "capture_s": 1.0,
+        "settle_s": 0.25,
+        "repeats": 2,
+        "gate_high_code": 65535
+      },
+      "binding": {
+        "hardware_id": "Battery_EIS_REV_A",
+        "board_serial": "pynq-ssh-192.168.2.99-serial-unread",
+        "module_serial": "existing-ADDA-physical-serial-unread",
+        "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+        "overlay_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+        "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+        "adc_clock_hz": 7680000,
+        "adc_reference_v": 2.5,
+        "dac_reference_v": 5.0,
+        "r_shunt_ohm": 0.1,
+        "voltage_divider": 1.249,
+        "voltage_dc_scale": 1.0,
+        "current_dc_scale": 1.0,
+        "dc_reference_source": "nominal only",
+        "r_load_nominal_ohm": 10.0,
+        "schema": "battery-eis-rev-a/3",
+        "abi": 48643,
+        "assembly_id": "rev-a-final-20261021-r1-10-r2-r100-r5-2490",
+        "drate": 240,
+        "pga": 1,
+        "buffer": false,
+        "mux": [
+          1,
+          35
+        ],
+        "slot_cycles": 32768,
+        "timestamp": "DRDY-ready-100MHz",
+        "waveform": "unipolar-square-50pct",
+        "gate_high_code": 65535,
+        "phase_increment": 3436,
+        "raw_capacity_samples": 16384,
+        "capture_ticks": 100000000,
+        "settle_ticks": 25000000,
+        "estimator": "dc-sin-cos-moments-v1"
+      },
+      "meta": {
+        "sequence": 2,
+        "status": 3187868181,
+        "faults": 0,
+        "ticks": 125000000,
+        "adc_registers": [
+          4026532144,
+          16774799,
+          4527442,
+          32768
+        ],
+        "configuration": [
+          3436,
+          25000000,
+          100000000,
+          65535
+        ],
+        "source": "hardware",
+        "timestamp_convention": "conversion-ready DRDY; filter aperture not directly measured"
+      },
+      "raw_file": "01_ac_raw.csv",
+      "raw_sha256": "a0ff445a464e90baecb9e23436b565754c5e60224201b0090df47c352d14daad",
+      "capture_file": "01_ac_capture.json",
+      "repeat": 0,
+      "result": {
+        "frequency_hz": 80.0006091594696,
+        "requested_frequency_hz": 80.0,
+        "voltage_dc_v": 3.4306010774106355,
+        "current_dc_a": 0.1647987779234298,
+        "voltage_ac_v": [
+          0.0008779738787504945,
+          0.003901021345226831
+        ],
+        "current_ac_a": [
+          -0.02574916046420476,
+          -0.20379333204171238
+        ],
+        "impedance_ohm": [
+          0.01937704084713604,
+          -0.001859880992468185
+        ],
+        "magnitude_ohm": 0.01946609537883042,
+        "phase_deg": -5.482667736692534,
+        "random_uncertainty_ohm": 0.0002578850571873009,
+        "valid": false,
+        "quality_ok": true,
+        "reasons": [
+          "uncalibrated"
+        ],
+        "calibration_id": null,
+        "diagnostics": [
+          {
+            "phasor": [
+              1196.2153467985945,
+              5238.11076382626
+            ],
+            "sigma_codes": 48.025120122922985,
+            "residual_rms_codes": 937.6970003697905,
+            "sample_rate_hz": 1525.809060254251,
+            "dc_drift_codes": -593.5285189366878,
+            "n": 1525,
+            "maximum_gap_s": 0.0006615100000000318
+          },
+          {
+            "phasor": [
+              -4419.754813221161,
+              -34174.28016540519
+            ],
+            "sigma_codes": 336.88808013689106,
+            "residual_rms_codes": 6579.948203393382,
+            "sample_rate_hz": 1525.809060254251,
+            "dc_drift_codes": 3.2870917466984793,
+            "n": 1526,
+            "maximum_gap_s": 0.0006615100000000318
+          }
+        ],
+        "counts": [
+          1525,
+          1526
+        ],
+        "estimator": "PL DC/sin/cos moments solved on PS",
+        "uncertainty_scope": "random residual only; excludes systematic calibration, drift and aliasing",
+        "ai": {
+          "status": "no_validated_battery_model",
+          "soh": null,
+          "rul": null
+        }
+      }
+    },
+    {
+      "index": 2,
+      "kind": "ac",
+      "drive": true,
+      "settings": {
+        "frequency_hz": 80.0,
+        "capture_s": 1.0,
+        "settle_s": 0.25,
+        "repeats": 2,
+        "gate_high_code": 65535
+      },
+      "binding": {
+        "hardware_id": "Battery_EIS_REV_A",
+        "board_serial": "pynq-ssh-192.168.2.99-serial-unread",
+        "module_serial": "existing-ADDA-physical-serial-unread",
+        "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+        "overlay_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+        "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+        "adc_clock_hz": 7680000,
+        "adc_reference_v": 2.5,
+        "dac_reference_v": 5.0,
+        "r_shunt_ohm": 0.1,
+        "voltage_divider": 1.249,
+        "voltage_dc_scale": 1.0,
+        "current_dc_scale": 1.0,
+        "dc_reference_source": "nominal only",
+        "r_load_nominal_ohm": 10.0,
+        "schema": "battery-eis-rev-a/3",
+        "abi": 48643,
+        "assembly_id": "rev-a-final-20261021-r1-10-r2-r100-r5-2490",
+        "drate": 240,
+        "pga": 1,
+        "buffer": false,
+        "mux": [
+          1,
+          35
+        ],
+        "slot_cycles": 32768,
+        "timestamp": "DRDY-ready-100MHz",
+        "waveform": "unipolar-square-50pct",
+        "gate_high_code": 65535,
+        "phase_increment": 3436,
+        "raw_capacity_samples": 16384,
+        "capture_ticks": 100000000,
+        "settle_ticks": 25000000,
+        "estimator": "dc-sin-cos-moments-v1"
+      },
+      "meta": {
+        "sequence": 3,
+        "status": 3187868565,
+        "faults": 0,
+        "ticks": 125000000,
+        "adc_registers": [
+          4026532144,
+          16774799,
+          4527442,
+          32768
+        ],
+        "configuration": [
+          3436,
+          25000000,
+          100000000,
+          65535
+        ],
+        "source": "hardware",
+        "timestamp_convention": "conversion-ready DRDY; filter aperture not directly measured"
+      },
+      "raw_file": "02_ac_raw.csv",
+      "raw_sha256": "dadb9ce2281ee868d23aa205aebc7f4298016807245b1dc48877bff9594a373b",
+      "capture_file": "02_ac_capture.json",
+      "repeat": 1,
+      "result": {
+        "frequency_hz": 80.0006091594696,
+        "requested_frequency_hz": 80.0,
+        "voltage_dc_v": 3.430324723537821,
+        "current_dc_a": 0.1648257933962829,
+        "voltage_ac_v": [
+          0.0008779593756835581,
+          0.0039003899731914655
+        ],
+        "current_ac_a": [
+          -0.025745995851151535,
+          -0.2038269715685514
+        ],
+        "impedance_ohm": [
+          0.019370806118791356,
+          -0.001860591259327763
+        ],
+        "magnitude_ohm": 0.01945995707924587,
+        "phase_deg": -5.486503301120683,
+        "random_uncertainty_ohm": 0.0002580815187644317,
+        "valid": false,
+        "quality_ok": true,
+        "reasons": [
+          "uncalibrated"
+        ],
+        "calibration_id": null,
+        "diagnostics": [
+          {
+            "phasor": [
+              1196.2103486776166,
+              5236.896806666142
+            ],
+            "sigma_codes": 48.13159292814123,
+            "residual_rms_codes": 939.7758936757721,
+            "sample_rate_hz": 1525.809060254251,
+            "dc_drift_codes": -501.3599615573073,
+            "n": 1525,
+            "maximum_gap_s": 0.0006615100000000318
+          },
+          {
+            "phasor": [
+              -4419.799058520515,
+              -34179.84971195959
+            ],
+            "sigma_codes": 336.9398016877907,
+            "residual_rms_codes": 6580.958375774382,
+            "sample_rate_hz": 1525.809060254251,
+            "dc_drift_codes": 5.712652421141229,
+            "n": 1526,
+            "maximum_gap_s": 0.0006615100000000318
+          }
+        ],
+        "counts": [
+          1525,
+          1526
+        ],
+        "estimator": "PL DC/sin/cos moments solved on PS",
+        "uncertainty_scope": "random residual only; excludes systematic calibration, drift and aliasing",
+        "ai": {
+          "status": "no_validated_battery_model",
+          "soh": null,
+          "rul": null
+        }
+      }
+    },
+    {
+      "index": 3,
+      "kind": "ac",
+      "drive": true,
+      "settings": {
+        "frequency_hz": 17.8,
+        "capture_s": 1.0,
+        "settle_s": 0.25,
+        "repeats": 2,
+        "gate_high_code": 65535
+      },
+      "binding": {
+        "hardware_id": "Battery_EIS_REV_A",
+        "board_serial": "pynq-ssh-192.168.2.99-serial-unread",
+        "module_serial": "existing-ADDA-physical-serial-unread",
+        "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+        "overlay_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+        "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+        "adc_clock_hz": 7680000,
+        "adc_reference_v": 2.5,
+        "dac_reference_v": 5.0,
+        "r_shunt_ohm": 0.1,
+        "voltage_divider": 1.249,
+        "voltage_dc_scale": 1.0,
+        "current_dc_scale": 1.0,
+        "dc_reference_source": "nominal only",
+        "r_load_nominal_ohm": 10.0,
+        "schema": "battery-eis-rev-a/3",
+        "abi": 48643,
+        "assembly_id": "rev-a-final-20261021-r1-10-r2-r100-r5-2490",
+        "drate": 240,
+        "pga": 1,
+        "buffer": false,
+        "mux": [
+          1,
+          35
+        ],
+        "slot_cycles": 32768,
+        "timestamp": "DRDY-ready-100MHz",
+        "waveform": "unipolar-square-50pct",
+        "gate_high_code": 65535,
+        "phase_increment": 765,
+        "raw_capacity_samples": 16384,
+        "capture_ticks": 100000000,
+        "settle_ticks": 25000000,
+        "estimator": "dc-sin-cos-moments-v1"
+      },
+      "meta": {
+        "sequence": 4,
+        "status": 3187868693,
+        "faults": 0,
+        "ticks": 125000000,
+        "adc_registers": [
+          4026532144,
+          16774799,
+          4527442,
+          32768
+        ],
+        "configuration": [
+          765,
+          25000000,
+          100000000,
+          65535
+        ],
+        "source": "hardware",
+        "timestamp_convention": "conversion-ready DRDY; filter aperture not directly measured"
+      },
+      "raw_file": "03_ac_raw.csv",
+      "raw_sha256": "3d626108fe3b8cf25e40ed4996abaa65d64262ee07d9003618db1090479c63c3",
+      "capture_file": "03_ac_capture.json",
+      "repeat": 0,
+      "result": {
+        "frequency_hz": 17.811544239521027,
+        "requested_frequency_hz": 17.8,
+        "voltage_dc_v": 3.4301390307745647,
+        "current_dc_a": 0.16405473746032406,
+        "voltage_ac_v": [
+          0.0007281690453901611,
+          0.004289154801738792
+        ],
+        "current_ac_a": [
+          -0.004344916333690362,
+          -0.20563507008945917
+        ],
+        "impedance_ohm": [
+          0.02092356904804891,
+          -0.0030989747429607394
+        ],
+        "magnitude_ohm": 0.021151817561760006,
+        "phase_deg": -8.42478984601504,
+        "random_uncertainty_ohm": 0.000287977077773914,
+        "valid": false,
+        "quality_ok": true,
+        "reasons": [
+          "uncalibrated"
+        ],
+        "calibration_id": null,
+        "diagnostics": [
+          {
+            "phasor": [
+              1011.0464757093139,
+              5750.693460710001
+            ],
+            "sigma_codes": 52.3019933564169,
+            "residual_rms_codes": 1020.7404394666357,
+            "sample_rate_hz": 1525.809060254251,
+            "dc_drift_codes": -449.32876321205003,
+            "n": 1525,
+            "maximum_gap_s": 0.0006553900000001445
+          },
+          {
+            "phasor": [
+              -902.253274493396,
+              -34487.734159849366
+            ],
+            "sigma_codes": 354.035999274664,
+            "residual_rms_codes": 6911.658285347334,
+            "sample_rate_hz": 1525.809060254251,
+            "dc_drift_codes": -70.44334277477901,
+            "n": 1526,
+            "maximum_gap_s": 0.0006553900000001445
+          }
+        ],
+        "counts": [
+          1525,
+          1526
+        ],
+        "estimator": "PL DC/sin/cos moments solved on PS",
+        "uncertainty_scope": "random residual only; excludes systematic calibration, drift and aliasing",
+        "ai": {
+          "status": "no_validated_battery_model",
+          "soh": null,
+          "rul": null
+        }
+      }
+    },
+    {
+      "index": 4,
+      "kind": "ac",
+      "drive": true,
+      "settings": {
+        "frequency_hz": 17.8,
+        "capture_s": 1.0,
+        "settle_s": 0.25,
+        "repeats": 2,
+        "gate_high_code": 65535
+      },
+      "binding": {
+        "hardware_id": "Battery_EIS_REV_A",
+        "board_serial": "pynq-ssh-192.168.2.99-serial-unread",
+        "module_serial": "existing-ADDA-physical-serial-unread",
+        "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+        "overlay_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+        "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+        "adc_clock_hz": 7680000,
+        "adc_reference_v": 2.5,
+        "dac_reference_v": 5.0,
+        "r_shunt_ohm": 0.1,
+        "voltage_divider": 1.249,
+        "voltage_dc_scale": 1.0,
+        "current_dc_scale": 1.0,
+        "dc_reference_source": "nominal only",
+        "r_load_nominal_ohm": 10.0,
+        "schema": "battery-eis-rev-a/3",
+        "abi": 48643,
+        "assembly_id": "rev-a-final-20261021-r1-10-r2-r100-r5-2490",
+        "drate": 240,
+        "pga": 1,
+        "buffer": false,
+        "mux": [
+          1,
+          35
+        ],
+        "slot_cycles": 32768,
+        "timestamp": "DRDY-ready-100MHz",
+        "waveform": "unipolar-square-50pct",
+        "gate_high_code": 65535,
+        "phase_increment": 765,
+        "raw_capacity_samples": 16384,
+        "capture_ticks": 100000000,
+        "settle_ticks": 25000000,
+        "estimator": "dc-sin-cos-moments-v1"
+      },
+      "meta": {
+        "sequence": 5,
+        "status": 3187869077,
+        "faults": 0,
+        "ticks": 125000000,
+        "adc_registers": [
+          4026532144,
+          16774799,
+          4527442,
+          32768
+        ],
+        "configuration": [
+          765,
+          25000000,
+          100000000,
+          65535
+        ],
+        "source": "hardware",
+        "timestamp_convention": "conversion-ready DRDY; filter aperture not directly measured"
+      },
+      "raw_file": "04_ac_raw.csv",
+      "raw_sha256": "2eb17a1bfd49b69fe603e9a936b85fcb275bd8f9507b354c31313db4d4ab82ce",
+      "capture_file": "04_ac_capture.json",
+      "repeat": 1,
+      "result": {
+        "frequency_hz": 17.811544239521027,
+        "requested_frequency_hz": 17.8,
+        "voltage_dc_v": 3.42996343129091,
+        "current_dc_a": 0.16407237979454045,
+        "voltage_ac_v": [
+          0.0007280721474731809,
+          0.0042908791486009875
+        ],
+        "current_ac_a": [
+          -0.004339062076115186,
+          -0.2056539257456146
+        ],
+        "impedance_ohm": [
+          0.02092994092171407,
+          -0.0030986806220888734
+        ],
+        "magnitude_ohm": 0.021158077620241172,
+        "phase_deg": -8.421473925604364,
+        "random_uncertainty_ohm": 0.00028790243438956526,
+        "valid": false,
+        "quality_ok": true,
+        "reasons": [
+          "uncalibrated"
+        ],
+        "calibration_id": null,
+        "diagnostics": [
+          {
+            "phasor": [
+              1011.3679388704631,
+              5752.672405963866
+            ],
+            "sigma_codes": 52.261659380701566,
+            "residual_rms_codes": 1019.9532714891295,
+            "sample_rate_hz": 1525.809060254251,
+            "dc_drift_codes": -442.7068717181637,
+            "n": 1525,
+            "maximum_gap_s": 0.0006553900000001445
+          },
+          {
+            "phasor": [
+              -901.3120638569617,
+              -34490.86622202776
+            ],
+            "sigma_codes": 354.0340530041352,
+            "residual_rms_codes": 6911.620311646386,
+            "sample_rate_hz": 1525.809060254251,
+            "dc_drift_codes": -71.74288426966086,
+            "n": 1526,
+            "maximum_gap_s": 0.0006553900000001445
+          }
+        ],
+        "counts": [
+          1525,
+          1526
+        ],
+        "estimator": "PL DC/sin/cos moments solved on PS",
+        "uncertainty_scope": "random residual only; excludes systematic calibration, drift and aliasing",
+        "ai": {
+          "status": "no_validated_battery_model",
+          "soh": null,
+          "rul": null
+        }
+      }
+    },
+    {
+      "index": 5,
+      "kind": "ac",
+      "drive": true,
+      "settings": {
+        "frequency_hz": 2.16,
+        "capture_s": 3.69459553,
+        "settle_s": 0.46182445,
+        "repeats": 2,
+        "gate_high_code": 65535
+      },
+      "binding": {
+        "hardware_id": "Battery_EIS_REV_A",
+        "board_serial": "pynq-ssh-192.168.2.99-serial-unread",
+        "module_serial": "existing-ADDA-physical-serial-unread",
+        "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+        "overlay_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+        "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+        "adc_clock_hz": 7680000,
+        "adc_reference_v": 2.5,
+        "dac_reference_v": 5.0,
+        "r_shunt_ohm": 0.1,
+        "voltage_divider": 1.249,
+        "voltage_dc_scale": 1.0,
+        "current_dc_scale": 1.0,
+        "dc_reference_source": "nominal only",
+        "r_load_nominal_ohm": 10.0,
+        "schema": "battery-eis-rev-a/3",
+        "abi": 48643,
+        "assembly_id": "rev-a-final-20261021-r1-10-r2-r100-r5-2490",
+        "drate": 240,
+        "pga": 1,
+        "buffer": false,
+        "mux": [
+          1,
+          35
+        ],
+        "slot_cycles": 32768,
+        "timestamp": "DRDY-ready-100MHz",
+        "waveform": "unipolar-square-50pct",
+        "gate_high_code": 65535,
+        "phase_increment": 93,
+        "raw_capacity_samples": 16384,
+        "capture_ticks": 369459553,
+        "settle_ticks": 46182445,
+        "estimator": "dc-sin-cos-moments-v1"
+      },
+      "meta": {
+        "sequence": 6,
+        "status": 3187869205,
+        "faults": 0,
+        "ticks": 415641998,
+        "adc_registers": [
+          4026532144,
+          16774799,
+          4527442,
+          32768
+        ],
+        "configuration": [
+          93,
+          46182445,
+          369459553,
+          65535
+        ],
+        "source": "hardware",
+        "timestamp_convention": "conversion-ready DRDY; filter aperture not directly measured"
+      },
+      "raw_file": "05_ac_raw.csv",
+      "raw_sha256": "c0ae287a6cdc5aa1c849eeb1cc669dd9eec19df5b26e68ece258a6b0307deca5",
+      "capture_file": "05_ac_capture.json",
+      "repeat": 0,
+      "result": {
+        "frequency_hz": 2.1653249859809875,
+        "requested_frequency_hz": 2.16,
+        "voltage_dc_v": 3.4295081672915035,
+        "current_dc_a": 0.16465453677273414,
+        "voltage_ac_v": [
+          0.002104552893913247,
+          0.006148544199629241
+        ],
+        "current_ac_a": [
+          -0.00011381203490332394,
+          -0.20566436500039884
+        ],
+        "impedance_ohm": [
+          0.029901665021356647,
+          -0.01021640148776427
+        ],
+        "magnitude_ohm": 0.03159880425599386,
+        "phase_deg": -18.863586306722908,
+        "random_uncertainty_ohm": 0.00020385710229067305,
+        "valid": false,
+        "quality_ok": true,
+        "reasons": [
+          "uncalibrated"
+        ],
+        "calibration_id": null,
+        "diagnostics": [
+          {
+            "phasor": [
+              2851.97333118126,
+              8274.572692385678
+            ],
+            "sigma_codes": 30.538183754989667,
+            "residual_rms_codes": 1143.6559038174357,
+            "sample_rate_hz": 1525.8090602543805,
+            "dc_drift_codes": -624.5424099355629,
+            "n": 5637,
+            "maximum_gap_s": 0.0006553900000003665
+          },
+          {
+            "phasor": [
+              -124.74785623380814,
+              -34476.74060620915
+            ],
+            "sigma_codes": 187.03599418214202,
+            "residual_rms_codes": 7005.1345713361725,
+            "sample_rate_hz": 1525.8090602543805,
+            "dc_drift_codes": -643.9947563551266,
+            "n": 5638,
+            "maximum_gap_s": 0.0006553900000003665
+          }
+        ],
+        "counts": [
+          5637,
+          5638
+        ],
+        "estimator": "PL DC/sin/cos moments solved on PS",
+        "uncertainty_scope": "random residual only; excludes systematic calibration, drift and aliasing",
+        "ai": {
+          "status": "no_validated_battery_model",
+          "soh": null,
+          "rul": null
+        }
+      }
+    },
+    {
+      "index": 6,
+      "kind": "ac",
+      "drive": true,
+      "settings": {
+        "frequency_hz": 2.16,
+        "capture_s": 3.69459553,
+        "settle_s": 0.46182445,
+        "repeats": 2,
+        "gate_high_code": 65535
+      },
+      "binding": {
+        "hardware_id": "Battery_EIS_REV_A",
+        "board_serial": "pynq-ssh-192.168.2.99-serial-unread",
+        "module_serial": "existing-ADDA-physical-serial-unread",
+        "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+        "overlay_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+        "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+        "adc_clock_hz": 7680000,
+        "adc_reference_v": 2.5,
+        "dac_reference_v": 5.0,
+        "r_shunt_ohm": 0.1,
+        "voltage_divider": 1.249,
+        "voltage_dc_scale": 1.0,
+        "current_dc_scale": 1.0,
+        "dc_reference_source": "nominal only",
+        "r_load_nominal_ohm": 10.0,
+        "schema": "battery-eis-rev-a/3",
+        "abi": 48643,
+        "assembly_id": "rev-a-final-20261021-r1-10-r2-r100-r5-2490",
+        "drate": 240,
+        "pga": 1,
+        "buffer": false,
+        "mux": [
+          1,
+          35
+        ],
+        "slot_cycles": 32768,
+        "timestamp": "DRDY-ready-100MHz",
+        "waveform": "unipolar-square-50pct",
+        "gate_high_code": 65535,
+        "phase_increment": 93,
+        "raw_capacity_samples": 16384,
+        "capture_ticks": 369459553,
+        "settle_ticks": 46182445,
+        "estimator": "dc-sin-cos-moments-v1"
+      },
+      "meta": {
+        "sequence": 7,
+        "status": 3187869589,
+        "faults": 0,
+        "ticks": 415641998,
+        "adc_registers": [
+          4026532144,
+          16774799,
+          4527442,
+          32768
+        ],
+        "configuration": [
+          93,
+          46182445,
+          369459553,
+          65535
+        ],
+        "source": "hardware",
+        "timestamp_convention": "conversion-ready DRDY; filter aperture not directly measured"
+      },
+      "raw_file": "06_ac_raw.csv",
+      "raw_sha256": "45fd029b2de05962276aec179b3571260283db4496755e8063803a7a742a6a6b",
+      "capture_file": "06_ac_capture.json",
+      "repeat": 1,
+      "result": {
+        "frequency_hz": 2.1653249859809875,
+        "requested_frequency_hz": 2.16,
+        "voltage_dc_v": 3.4291305863340993,
+        "current_dc_a": 0.16468842456474297,
+        "voltage_ac_v": [
+          0.0021045653575208698,
+          0.006146703866449941
+        ],
+        "current_ac_a": [
+          -0.00011793741379528591,
+          -0.20571319002625077
+        ],
+        "impedance_ohm": [
+          0.02988582508080522,
+          -0.010213446694077274
+        ],
+        "magnitude_ohm": 0.03158285981562221,
+        "phase_deg": -18.867804571803255,
+        "random_uncertainty_ohm": 0.00020370696708489503,
+        "valid": false,
+        "quality_ok": true,
+        "reasons": [
+          "uncalibrated"
+        ],
+        "calibration_id": null,
+        "diagnostics": [
+          {
+            "phasor": [
+              2852.075550712103,
+              8273.332983994016
+            ],
+            "sigma_codes": 30.507109933586097,
+            "residual_rms_codes": 1142.4921881553232,
+            "sample_rate_hz": 1525.8090602543805,
+            "dc_drift_codes": -655.7328351575616,
+            "n": 5637,
+            "maximum_gap_s": 0.0006553900000003665
+          },
+          {
+            "phasor": [
+              -125.4775253690607,
+              -34484.99895976615
+            ],
+            "sigma_codes": 187.07737847427427,
+            "residual_rms_codes": 7006.6845535655175,
+            "sample_rate_hz": 1525.8090602543805,
+            "dc_drift_codes": -642.2245714461965,
+            "n": 5638,
+            "maximum_gap_s": 0.0006553900000003665
+          }
+        ],
+        "counts": [
+          5637,
+          5638
+        ],
+        "estimator": "PL DC/sin/cos moments solved on PS",
+        "uncertainty_scope": "random residual only; excludes systematic calibration, drift and aliasing",
+        "ai": {
+          "status": "no_validated_battery_model",
+          "soh": null,
+          "rul": null
+        }
+      }
+    }
+  ],
+  "drive_ever_requested": true,
+  "input_sha256_before": {
+    "profile.pending.json": "94748514dca7ff0a71567c78620ec533777a52e7867361beb776d19c3a0a4bd5",
+    "commissioning_start.py": "140dd3239d7c16e9fd81c6e0ebd2bb6511cdf3cf3c74ab185071270e194d6734",
+    "30-ui-spectra.conf": "509dcef9e9ee730404dfcaa9c5aa5290fee1747f938d97346e07aaad05a258a4"
+  },
+  "original_profile": {
+    "hardware_id": "Battery_EIS_REV_A",
+    "board_serial": "pynq-ssh-192.168.2.99-serial-unread",
+    "module_serial": "existing-ADDA-physical-serial-unread",
+    "wiring_verified": true,
+    "module_verified": true,
+    "adc_clock_verified": false,
+    "polarity_verified": false,
+    "limits_confirmed": false,
+    "chemistry": "Li-ion-20700-Dyson-exact-model-unverified",
+    "cell_id": "Dyson-20700-user-20261026",
+    "minimum_voltage_v": 3.0,
+    "maximum_voltage_v": 4.2,
+    "maximum_current_a": 0.45,
+    "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+    "overlay_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+    "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+    "adc_clock_hz": 7680000,
+    "adc_reference_v": 2.5,
+    "dac_reference_v": 5.0,
+    "r_shunt_ohm": 0.1,
+    "voltage_divider": 1.249,
+    "r_load_nominal_ohm": 10.0,
+    "voltage_dc_scale": 1.0,
+    "current_dc_scale": 1.0,
+    "dc_reference_source": "nominal only"
+  },
+  "diagnostic_profile": {
+    "hardware_id": "Battery_EIS_REV_A",
+    "board_serial": "pynq-ssh-192.168.2.99-serial-unread",
+    "module_serial": "existing-ADDA-physical-serial-unread",
+    "wiring_verified": true,
+    "module_verified": true,
+    "adc_clock_verified": false,
+    "polarity_verified": false,
+    "limits_confirmed": false,
+    "chemistry": "Li-ion-20700-Dyson-exact-model-unverified",
+    "cell_id": "Dyson-20700-user-20261026",
+    "minimum_voltage_v": 3.0,
+    "maximum_voltage_v": 3.7,
+    "maximum_current_a": 0.4,
+    "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+    "overlay_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+    "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+    "adc_clock_hz": 7680000,
+    "adc_reference_v": 2.5,
+    "dac_reference_v": 5.0,
+    "r_shunt_ohm": 0.1,
+    "voltage_divider": 1.249,
+    "r_load_nominal_ohm": 10.0,
+    "voltage_dc_scale": 1.0,
+    "current_dc_scale": 1.0,
+    "dc_reference_source": "nominal only"
+  },
+  "normal_limits": [
+    4029755,
+    5641657,
+    75497
+  ],
+  "diagnostic_limits": [
+    4029755,
+    4970031,
+    67109
+  ],
+  "frozen_source_count": 67,
+  "production_measurement_still_locked": true,
+  "initial_status": "0xbe030011",
+  "adc_init": {
+    "config": 4026532144,
+    "ofc": 16774799,
+    "fsc": 4527442,
+    "slot_cycles": 32768
+  },
+  "diagnostic_authorization": {
+    "scope": "restricted research diagnostic only",
+    "drive_allowed_for_diagnostic": true,
+    "production_preflight_valid": false,
+    "production_preflight_reasons": [
+      "absolute_zero_current_over_1mA"
+    ],
+    "known_physical_zero": false,
+    "worst_case_load_limited_current_a": 0.3854969785371952,
+    "maximum_voltage_v": 3.7,
+    "maximum_current_a": 0.4,
+    "creates_calibration": false
+  },
+  "repeatability": {
+    "80.0": {
+      "count": 2,
+      "mean_ohm": [
+        0.019373923482963698,
+        -0.001860236125897974
+      ],
+      "std_real_ohm": 4.408618691382014e-06,
+      "std_imag_ohm": 5.022345128596478e-07,
+      "relative_std": 0.0002279776004931311
+    },
+    "17.8": {
+      "count": 2,
+      "mean_ohm": [
+        0.02092675498488149,
+        -0.0030988276825248064
+      ],
+      "std_real_ohm": 4.5055950774979964e-06,
+      "std_imag_ohm": 2.0797486298493207e-07,
+      "relative_std": 0.00021320745358204777
+    },
+    "2.16": {
+      "count": 2,
+      "mean_ohm": [
+        0.029893745051080934,
+        -0.010214924090920771
+      ],
+      "std_real_ohm": 1.1200529377504448e-05,
+      "std_imag_ohm": 2.0893546530819246e-06,
+      "relative_std": 0.00036066596160809624
+    }
+  },
+  "status": "AC_DIAGNOSTIC_COMPLETED_UNCALIBRATED",
+  "normal_limits_restored": true,
+  "final_status": "0xbe030715",
+  "boot_after": "8189816c-451b-464c-b38d-e18ff713cc97",
+  "input_sha256_after": {
+    "profile.pending.json": "94748514dca7ff0a71567c78620ec533777a52e7867361beb776d19c3a0a4bd5",
+    "commissioning_start.py": "140dd3239d7c16e9fd81c6e0ebd2bb6511cdf3cf3c74ab185071270e194d6734",
+    "30-ui-spectra.conf": "509dcef9e9ee730404dfcaa9c5aa5290fee1747f938d97346e07aaad05a258a4"
+  },
+  "frozen_inputs_unchanged": true,
+  "elapsed_s": 31.823446230000172
+}

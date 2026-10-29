@@ -1,0 +1,262 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Thu Oct 22 19:59:21 2026
+| Host         : cyx running 64-bit major release  (build 9200)
+| Command      : report_timing -to [get_ports {ads_reset ads_cs dac_cs spi_sclk spi_mosi}] -max_paths 10 -file D:/cyx/nt/battery_eis_be03_20261022_1950/reports/serial_outputs.rpt
+| Design       : base_wrapper
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.378ns  (required time - arrival time)
+  Source:                 base_i/waveshare_lockin/inst/impl/engine/dac_cs_reg/C
+                            (rising edge-triggered cell FDSE clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            dac_cs
+                            (output port clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_3
+  Path Type:              Max at Slow Process Corner
+  Requirement:            10.000ns  (MaxDelay Path 10.000ns)
+  Data Path Delay:        6.429ns  (logic 4.044ns (62.896%)  route 2.385ns (37.104%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           0.000ns
+  Clock Path Skew:        -3.039ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.000ns
+    Source Clock Delay      (SCD):    3.039ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       MaxDelay Path 10.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_3 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[3]
+                         net (fo=1, routed)           1.193     1.193    base_i/ps7_0/inst/FCLK_CLK_unbuffered[3]
+    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.101     1.294 r  base_i/ps7_0/inst/buffer_fclk_clk_3.FCLK_CLK_3_BUFG/O
+                         net (fo=5599, routed)        1.745     3.039    base_i/waveshare_lockin/inst/impl/engine/clk_100m
+    SLICE_X10Y19         FDSE                                         r  base_i/waveshare_lockin/inst/impl/engine/dac_cs_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X10Y19         FDSE (Prop_fdse_C_Q)         0.518     3.557 r  base_i/waveshare_lockin/inst/impl/engine/dac_cs_reg/Q
+                         net (fo=1, routed)           2.385     5.942    dac_cs_OBUF
+    W6                   OBUF (Prop_obuf_I_O)         3.526     9.468 r  dac_cs_OBUF_inst/O
+                         net (fo=0)                   0.000     9.468    dac_cs
+    W6                                                                r  dac_cs (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   10.000    10.000    
+                         clock pessimism              0.000    10.000    
+                         clock uncertainty           -0.154     9.846    
+                         output delay                -0.000     9.846    
+  -------------------------------------------------------------------
+                         required time                          9.846    
+                         arrival time                          -9.468    
+  -------------------------------------------------------------------
+                         slack                                  0.378    
+
+Slack (MET) :             0.538ns  (required time - arrival time)
+  Source:                 base_i/waveshare_lockin/inst/impl/engine/ads_cs_reg/C
+                            (rising edge-triggered cell FDSE clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ads_cs
+                            (output port clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_3
+  Path Type:              Max at Slow Process Corner
+  Requirement:            10.000ns  (MaxDelay Path 10.000ns)
+  Data Path Delay:        6.196ns  (logic 4.092ns (66.033%)  route 2.105ns (33.967%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           0.000ns
+  Clock Path Skew:        -3.112ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.000ns
+    Source Clock Delay      (SCD):    3.112ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       MaxDelay Path 10.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_3 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[3]
+                         net (fo=1, routed)           1.193     1.193    base_i/ps7_0/inst/FCLK_CLK_unbuffered[3]
+    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.101     1.294 r  base_i/ps7_0/inst/buffer_fclk_clk_3.FCLK_CLK_3_BUFG/O
+                         net (fo=5599, routed)        1.818     3.112    base_i/waveshare_lockin/inst/impl/engine/clk_100m
+    SLICE_X2Y25          FDSE                                         r  base_i/waveshare_lockin/inst/impl/engine/ads_cs_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y25          FDSE (Prop_fdse_C_Q)         0.518     3.630 r  base_i/waveshare_lockin/inst/impl/engine/ads_cs_reg/Q
+                         net (fo=1, routed)           2.105     5.735    ads_cs_OBUF
+    U8                   OBUF (Prop_obuf_I_O)         3.574     9.308 r  ads_cs_OBUF_inst/O
+                         net (fo=0)                   0.000     9.308    ads_cs
+    U8                                                                r  ads_cs (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   10.000    10.000    
+                         clock pessimism              0.000    10.000    
+                         clock uncertainty           -0.154     9.846    
+                         output delay                -0.000     9.846    
+  -------------------------------------------------------------------
+                         required time                          9.846    
+                         arrival time                          -9.308    
+  -------------------------------------------------------------------
+                         slack                                  0.538    
+
+Slack (MET) :             0.629ns  (required time - arrival time)
+  Source:                 base_i/waveshare_lockin/inst/impl/engine/ads_reset_reg/C
+                            (rising edge-triggered cell FDSE clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ads_reset
+                            (output port clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_3
+  Path Type:              Max at Slow Process Corner
+  Requirement:            10.000ns  (MaxDelay Path 10.000ns)
+  Data Path Delay:        5.869ns  (logic 3.983ns (67.867%)  route 1.886ns (32.133%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           0.000ns
+  Clock Path Skew:        -3.348ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.000ns
+    Source Clock Delay      (SCD):    3.348ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       MaxDelay Path 10.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_3 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[3]
+                         net (fo=1, routed)           1.193     1.193    base_i/ps7_0/inst/FCLK_CLK_unbuffered[3]
+    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.101     1.294 r  base_i/ps7_0/inst/buffer_fclk_clk_3.FCLK_CLK_3_BUFG/O
+                         net (fo=5599, routed)        2.054     3.348    base_i/waveshare_lockin/inst/impl/engine/clk_100m
+    SLICE_X106Y141       FDSE                                         r  base_i/waveshare_lockin/inst/impl/engine/ads_reset_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X106Y141       FDSE (Prop_fdse_C_Q)         0.456     3.804 r  base_i/waveshare_lockin/inst/impl/engine/ads_reset_reg/Q
+                         net (fo=1, routed)           1.886     5.690    ads_reset_OBUF
+    C20                  OBUF (Prop_obuf_I_O)         3.527     9.217 r  ads_reset_OBUF_inst/O
+                         net (fo=0)                   0.000     9.217    ads_reset
+    C20                                                               r  ads_reset (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   10.000    10.000    
+                         clock pessimism              0.000    10.000    
+                         clock uncertainty           -0.154     9.846    
+                         output delay                -0.000     9.846    
+  -------------------------------------------------------------------
+                         required time                          9.846    
+                         arrival time                          -9.217    
+  -------------------------------------------------------------------
+                         slack                                  0.629    
+
+Slack (MET) :             1.058ns  (required time - arrival time)
+  Source:                 base_i/waveshare_lockin/inst/impl/engine/spi_mosi_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            spi_mosi
+                            (output port clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_3
+  Path Type:              Max at Slow Process Corner
+  Requirement:            10.000ns  (MaxDelay Path 10.000ns)
+  Data Path Delay:        5.669ns  (logic 4.140ns (73.021%)  route 1.530ns (26.979%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           0.000ns
+  Clock Path Skew:        -3.119ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.000ns
+    Source Clock Delay      (SCD):    3.119ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       MaxDelay Path 10.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_3 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[3]
+                         net (fo=1, routed)           1.193     1.193    base_i/ps7_0/inst/FCLK_CLK_unbuffered[3]
+    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.101     1.294 r  base_i/ps7_0/inst/buffer_fclk_clk_3.FCLK_CLK_3_BUFG/O
+                         net (fo=5599, routed)        1.825     3.119    base_i/waveshare_lockin/inst/impl/engine/clk_100m
+    SLICE_X0Y20          FDRE                                         r  base_i/waveshare_lockin/inst/impl/engine/spi_mosi_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y20          FDRE (Prop_fdre_C_Q)         0.518     3.637 r  base_i/waveshare_lockin/inst/impl/engine/spi_mosi_reg/Q
+                         net (fo=1, routed)           1.530     5.167    spi_mosi_OBUF
+    V8                   OBUF (Prop_obuf_I_O)         3.622     8.788 r  spi_mosi_OBUF_inst/O
+                         net (fo=0)                   0.000     8.788    spi_mosi
+    V8                                                                r  spi_mosi (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   10.000    10.000    
+                         clock pessimism              0.000    10.000    
+                         clock uncertainty           -0.154     9.846    
+                         output delay                -0.000     9.846    
+  -------------------------------------------------------------------
+                         required time                          9.846    
+                         arrival time                          -8.788    
+  -------------------------------------------------------------------
+                         slack                                  1.058    
+
+Slack (MET) :             1.089ns  (required time - arrival time)
+  Source:                 base_i/waveshare_lockin/inst/impl/engine/spi_sclk_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            spi_sclk
+                            (output port clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_3
+  Path Type:              Max at Slow Process Corner
+  Requirement:            10.000ns  (MaxDelay Path 10.000ns)
+  Data Path Delay:        5.636ns  (logic 4.107ns (72.861%)  route 1.530ns (27.138%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           0.000ns
+  Clock Path Skew:        -3.121ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.000ns
+    Source Clock Delay      (SCD):    3.121ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       MaxDelay Path 10.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_3 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[3]
+                         net (fo=1, routed)           1.193     1.193    base_i/ps7_0/inst/FCLK_CLK_unbuffered[3]
+    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.101     1.294 r  base_i/ps7_0/inst/buffer_fclk_clk_3.FCLK_CLK_3_BUFG/O
+                         net (fo=5599, routed)        1.827     3.121    base_i/waveshare_lockin/inst/impl/engine/clk_100m
+    SLICE_X0Y18          FDRE                                         r  base_i/waveshare_lockin/inst/impl/engine/spi_sclk_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y18          FDRE (Prop_fdre_C_Q)         0.518     3.639 r  base_i/waveshare_lockin/inst/impl/engine/spi_sclk_reg/Q
+                         net (fo=1, routed)           1.530     5.169    spi_sclk_OBUF
+    W10                  OBUF (Prop_obuf_I_O)         3.589     8.757 r  spi_sclk_OBUF_inst/O
+                         net (fo=0)                   0.000     8.757    spi_sclk
+    W10                                                               r  spi_sclk (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   10.000    10.000    
+                         clock pessimism              0.000    10.000    
+                         clock uncertainty           -0.154     9.846    
+                         output delay                -0.000     9.846    
+  -------------------------------------------------------------------
+                         required time                          9.846    
+                         arrival time                          -8.757    
+  -------------------------------------------------------------------
+                         slack                                  1.089    
+
+
+
+

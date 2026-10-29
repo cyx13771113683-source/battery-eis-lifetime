@@ -1,0 +1,27 @@
+[
+  {
+    "source": "personal\\workspace\\battery_eis_models\\two_frequency_20261022_a\\inference.py",
+    "path": "ps/research_inference.py",
+    "sha256": "cfc644ea2ef8c6254e7adc9616340d2ae6c2df0a71a25d3aeda81b1c84064824"
+  },
+  {
+    "source": "personal\\workspace\\battery_eis_models\\two_frequency_20261022_a\\lib_two_ridge.json",
+    "path": "models/frozen_two_frequency_20261022/lib_two_ridge.json",
+    "sha256": "0970354e2c6609bacde8d6da1906e3d15ad8b8fdd1a2cb8b85d9601215e668df"
+  },
+  {
+    "source": "personal\\workspace\\battery_eis_models\\two_frequency_20261022_a\\kit_two_forest.json",
+    "path": "models/frozen_two_frequency_20261022/kit_two_forest.json",
+    "sha256": "259cfdc60f7fbd5ce882610d03f17ef431b4b40b05113091bdfb9a285f76836d"
+  },
+  {
+    "source": "personal\\workspace\\battery_eis_models\\two_frequency_20261022_a\\lib_two_ridge.example.json",
+    "path": "models/frozen_two_frequency_20261022/lib_two_ridge.example.json",
+    "sha256": "2d6d914c9bf35e49b352b66ee71cc2a67409764a1c7978ad6f7318f847d61c2f"
+  },
+  {
+    "source": "personal\\workspace\\battery_eis_models\\two_frequency_20261022_a\\kit_two_forest.example.json",
+    "path": "models/frozen_two_frequency_20261022/kit_two_forest.example.json",
+    "sha256": "a963504b1d1c1dc74457ff4d32203b796a5c399e5a52c746fb65ef96fbe5a5f9"
+  }
+]

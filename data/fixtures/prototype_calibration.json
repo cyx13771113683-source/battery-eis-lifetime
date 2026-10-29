@@ -1,0 +1,156 @@
+{
+  "schema": "battery-prototype-calibration/1",
+  "id": "positive10m-20261028",
+  "mode": "prototype",
+  "enabled": true,
+  "valid_for_board": false,
+  "reference_kind": "user_nominal_10mohm",
+  "reference_ohm": 0.01,
+  "rows": [
+    {
+      "binding": {
+        "hardware_id": "Battery_EIS_REV_A",
+        "board_serial": "pynq-ssh-192.168.2.99-serial-unread",
+        "module_serial": "existing-ADDA-physical-serial-unread",
+        "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+        "overlay_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+        "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+        "adc_clock_hz": 7680000,
+        "adc_reference_v": 2.5,
+        "dac_reference_v": 5.0,
+        "r_shunt_ohm": 0.1,
+        "voltage_divider": 1.249,
+        "voltage_dc_scale": 1.0,
+        "current_dc_scale": 1.0,
+        "dc_reference_source": "nominal only",
+        "r_load_nominal_ohm": 10.0,
+        "schema": "battery-eis-rev-a/3",
+        "abi": 48643,
+        "assembly_id": "rev-a-final-20261021-r1-10-r2-r100-r5-2490",
+        "drate": 240,
+        "pga": 1,
+        "buffer": false,
+        "mux": [
+          1,
+          35
+        ],
+        "slot_cycles": 32768,
+        "timestamp": "DRDY-ready-100MHz",
+        "waveform": "unipolar-square-50pct",
+        "gate_high_code": 65535,
+        "phase_increment": 3436,
+        "raw_capacity_samples": 16384,
+        "capture_ticks": 100000000,
+        "settle_ticks": 25000000,
+        "estimator": "dc-sin-cos-moments-v1"
+      },
+      "frequency_hz": 80.0006091594696,
+      "correction": [
+        0.7158122044333785,
+        -0.008732871167480345
+      ],
+      "increment_ohm": [
+        0.013968065607754154,
+        0.00017040966423307615
+      ]
+    },
+    {
+      "binding": {
+        "hardware_id": "Battery_EIS_REV_A",
+        "board_serial": "pynq-ssh-192.168.2.99-serial-unread",
+        "module_serial": "existing-ADDA-physical-serial-unread",
+        "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+        "overlay_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+        "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+        "adc_clock_hz": 7680000,
+        "adc_reference_v": 2.5,
+        "dac_reference_v": 5.0,
+        "r_shunt_ohm": 0.1,
+        "voltage_divider": 1.249,
+        "voltage_dc_scale": 1.0,
+        "current_dc_scale": 1.0,
+        "dc_reference_source": "nominal only",
+        "r_load_nominal_ohm": 10.0,
+        "schema": "battery-eis-rev-a/3",
+        "abi": 48643,
+        "assembly_id": "rev-a-final-20261021-r1-10-r2-r100-r5-2490",
+        "drate": 240,
+        "pga": 1,
+        "buffer": false,
+        "mux": [
+          1,
+          35
+        ],
+        "slot_cycles": 32768,
+        "timestamp": "DRDY-ready-100MHz",
+        "waveform": "unipolar-square-50pct",
+        "gate_high_code": 65535,
+        "phase_increment": 765,
+        "raw_capacity_samples": 16384,
+        "capture_ticks": 100000000,
+        "settle_ticks": 25000000,
+        "estimator": "dc-sin-cos-moments-v1"
+      },
+      "frequency_hz": 17.811544239521027,
+      "correction": [
+        0.7177744661465228,
+        -0.002818782800199436
+      ],
+      "increment_ohm": [
+        0.013931737964641932,
+        5.471153573133889e-05
+      ]
+    },
+    {
+      "binding": {
+        "hardware_id": "Battery_EIS_REV_A",
+        "board_serial": "pynq-ssh-192.168.2.99-serial-unread",
+        "module_serial": "existing-ADDA-physical-serial-unread",
+        "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+        "overlay_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+        "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+        "adc_clock_hz": 7680000,
+        "adc_reference_v": 2.5,
+        "dac_reference_v": 5.0,
+        "r_shunt_ohm": 0.1,
+        "voltage_divider": 1.249,
+        "voltage_dc_scale": 1.0,
+        "current_dc_scale": 1.0,
+        "dc_reference_source": "nominal only",
+        "r_load_nominal_ohm": 10.0,
+        "schema": "battery-eis-rev-a/3",
+        "abi": 48643,
+        "assembly_id": "rev-a-final-20261021-r1-10-r2-r100-r5-2490",
+        "drate": 240,
+        "pga": 1,
+        "buffer": false,
+        "mux": [
+          1,
+          35
+        ],
+        "slot_cycles": 32768,
+        "timestamp": "DRDY-ready-100MHz",
+        "waveform": "unipolar-square-50pct",
+        "gate_high_code": 65535,
+        "phase_increment": 93,
+        "raw_capacity_samples": 16384,
+        "capture_ticks": 369459553,
+        "settle_ticks": 46182445,
+        "estimator": "dc-sin-cos-moments-v1"
+      },
+      "frequency_hz": 2.1653249859809875,
+      "correction": [
+        0.7183600818013292,
+        -0.00971984869108707
+      ],
+      "increment_ohm": [
+        0.013918047250766338,
+        0.00018831964188993286
+      ]
+    }
+  ],
+  "evidence_sha256": {
+    "ac_positive_standard_20261028_f": "cbebf93e8a8ca6c8d21c9e33cec75587a1c5bdd163e0309bfbdb496b9d364a73",
+    "ac_positive_normal_20261028_g": "4ade638d19ddf8ac8139b53ce851985ef09f948ff06de7acb3836dfc573b88c5"
+  }
+}

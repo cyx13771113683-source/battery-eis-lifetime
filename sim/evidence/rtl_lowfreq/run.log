@@ -1,0 +1,22 @@
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Thu Oct 22 19:44:51 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/lowfreq_sim/xsim_script.tcl
+# xsim {lowfreq_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS_LONG_CAPTURE samples=      15625 upper_RAM_and_all_moments_exported
+PASS_BE03_LIMITS
+PASS_RAM_OVERFLOW_STOP
+PASS_LOWFREQ_BUFFER
+$finish called at time : 79339700 ns : File "D:/cyx/multi_channel_lockin_amplifier/personal/workspace/battery_eis/sim/tb_lowfreq_buffer.sv" Line 76
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:10 . Memory (MB): peak = 218.266 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 12136 KB (Peak: 12136 KB), Simulation CPU Usage: 10155 ms
+INFO: [Common 17-206] Exiting xsim at Thu Oct 22 19:45:03 2026...

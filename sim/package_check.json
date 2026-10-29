@@ -1,0 +1,17 @@
+{
+  "files": 203,
+  "bytes": 12046551,
+  "naming_errors": [],
+  "excluded_applications": [
+    "rlc_reference",
+    "rlc_classifier",
+    "generic_lockin_ui"
+  ],
+  "hardware_data": "2026-10-28 normal fixture",
+  "board_verification": "passed, project owner confirmation 2026-10-29",
+  "host_tests": {
+    "count": 131,
+    "status": "passed",
+    "log": "sim/host_tests_final.log"
+  }
+}

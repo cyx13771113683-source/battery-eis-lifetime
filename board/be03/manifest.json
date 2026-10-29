@@ -1,0 +1,15 @@
+{
+  "schema": "battery-eis-release/3",
+  "abi": 48643,
+  "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+  "assembly_id": "rev-a-final-20261021-r1-10-r2-r100-r5-2490",
+  "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+  "created_utc": "2026-10-22T12:03:36.290977+00:00",
+  "build_directory": "D:\\cyx\\nt\\battery_eis_be03_20261022_1950",
+  "files": {
+    "battery_eis.bit": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+    "battery_eis.hwh": "3b31e652b984aae3cf31638d6e5858a69506fa987f78a411598d0aeda3a154f8",
+    "battery_eis.xsa": "3192c7bd30b4ac7a4367d088d51ea556aed5b5609be1a02d99406c985ce391fc"
+  },
+  "board_validated": false
+}

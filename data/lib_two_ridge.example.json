@@ -1,0 +1,22 @@
+{
+  "source_domain": "lib_public_dataset",
+  "chemistry": "NMC811_Si_graphite_18650_3Ah",
+  "soc_percent": 50,
+  "temperature_C": 23,
+  "frequency_hz": [
+    2.1653249859809875,
+    17.811544239521027
+  ],
+  "z_real_ohm": [
+    0.023355759201176367,
+    0.020321768994978222
+  ],
+  "z_imag_ohm": [
+    -0.0019973941557151764,
+    -0.0021066913074812635
+  ],
+  "impedance_unit": "ohm",
+  "convention": "passive_Z_re_plus_j_im",
+  "measurement_valid": true,
+  "calibration_valid": true
+}

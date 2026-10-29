@@ -1,0 +1,78 @@
+{
+  "schema": "battery-eis-research-model/1",
+  "source_domain": "lib_public_dataset",
+  "chemistry": "NMC811_Si_graphite_18650_3Ah",
+  "soc_percent": 50,
+  "measurement_temperature_C": [
+    23.0,
+    23.0
+  ],
+  "measurement_temperature_caveat": "LIB original metadata.csv recovered in MATLAB: T_EIS_degC=23 for all campaigns. Temperature transfer not validated.",
+  "frequencies_hz": [
+    2.1653249859809875,
+    17.811544239521027
+  ],
+  "mean": [
+    0.026522719777020285,
+    0.02307228963452958,
+    -0.003247849397468632,
+    -0.0022408036449684614
+  ],
+  "scale": [
+    0.010452772662090565,
+    0.007420607835955468,
+    0.004223270769093833,
+    0.0013757181206957537
+  ],
+  "median": [
+    0.02256528816948565,
+    0.02019378628404189,
+    -0.0011556155477028178,
+    -0.0019276869925069183
+  ],
+  "lower": [
+    0.012797685110572197,
+    0.013838079553161867,
+    -0.01840943740512939,
+    -0.0077353849439714345
+  ],
+  "upper": [
+    0.07077095296463444,
+    0.05471588730180887,
+    0.0011654706297302235,
+    0.00021086475054628209
+  ],
+  "target_range": [
+    0.15300537090371294,
+    1.02
+  ],
+  "target_definition": "Q / initial_cell_Q",
+  "nominal_capacity_Ah": null,
+  "estimator": {
+    "kind": "ridge",
+    "coef": [
+      -0.04075756920150271,
+      -0.008072641385379121,
+      0.05902342763043935,
+      0.08296531830728245
+    ],
+    "intercept": 0.7977059089094697
+  },
+  "selection": {
+    "panel": "fixed_two_2p16_17p8",
+    "kind": "ridge",
+    "param": 10.0,
+    "full_data_groupCV_MAE_pp": 2.3992883398571174,
+    "nominal_frequencies_hz": [
+      2.16,
+      17.8
+    ],
+    "frequency_selection": "Frozen by user before this run; previous search used the same historical data.",
+    "candidate_selection": "Mean outer-training inner-group-CV MAE; no outer prediction errors used."
+  },
+  "parameter_count": 5,
+  "parameter_count_definition": "learned weights and biases",
+  "valid_for_board": false,
+  "validation": "Retrospective grouped CV at historically selected fixed frequencies; not a new blind test or Molicel validation.",
+  "training_protocol_sha256": "a0482906d8d8e54b0486f183cfc37d6ab3ca9f528189e68d586994aa0cb6d93c"
+}

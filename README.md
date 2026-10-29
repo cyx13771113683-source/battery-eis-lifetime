@@ -1,0 +1,43 @@
+# 基于 FPGA EIS 的锂电池寿命评估
+
+2026 AMD FPGA 创新设计赛道，初级组自主选题。目标平台：TUL PYNQ-Z2，Zynq-7020 (`xc7z020clg400-1`)；FPGA 工具：Vivado 2025.2。
+
+系统通过专用负载板和 ADS1256/DAC8552 前端采集锂电池电压、电流，由 PL 完成时间戳与锁相矩累积，PS 计算复阻抗并调用电池健康度模型。操作界面为首页、设置、记录三页。
+
+项目负责人于 2026-10-29 确认实际电池验证已通过。详见 [验证说明](report/validation.md)。冻结研究模型保留自身的数据域和有效性标记，原始发布 manifest 反映其生成时状态。
+
+## 目录
+
+| 目录 | 材料 |
+|---|---|
+| `src/battery_eis/` | 电池应用、模型、RTL、配置、字库、测试和仿真平台 |
+| `sim/` | 仿真方法、历史原始仿真证据和本次软件验证 |
+| `build/` | 可移植构建入口、BD、必需 IP、约束及综合实现报告 |
+| `board/` | BE03 BIT/HWH/XSA 与运行说明 |
+| `data/` | 公开模型回放样例和硬件配置模板 |
+| `skill/` | 从测量与推理流程提炼的通用经验 |
+| `report/` | 设计、验证、比赛核对及协作记录 |
+
+## 离线运行
+
+在仓库根目录，使用 Python 3.10 或更新版本：
+
+```sh
+python -m pip install -r requirements.txt
+python -B -m unittest discover -s src/battery_eis/tests
+python -B src/battery_eis/ps/app.py simulate --profile data/profile.example.json --output outputs/simulation
+python -B src/battery_eis/ps/app.py replay-model --model src/battery_eis/models/frozen_two_frequency_20261022/lib_two_ridge.json --input data/lib_two_ridge.example.json --output outputs/public_replay.json
+python -B src/battery_eis/ps/app.py preview --output outputs/preview
+```
+
+公开数据回放输出与实际电池采集的来源分别记录。模型接口目前返回的 RUL 为 null；寿命评估中的定量输出取决于所选模型及有效输入，不能将 SOH 百分比直接换算为剩余循环次数。
+
+## FPGA 构建和上板
+
+在短的英文路径克隆仓库，准备 Vivado 2025.2：
+
+```powershell
+./build/build.ps1 -VivadoBin 'C:/AMD/Vivado/2025.2/bin' -Output 'C:/fpga/battery_eis_build'
+```
+
+输出目录须不存在。脚本先执行三个 RTL 仿真入口，再综合、实现、检查时序和 DRC，导出 BIT/HWH/XSA。原始报告见 `build/reports/`。上板流程见 [board/README.md](board/README.md)。

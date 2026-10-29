@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+/src/battery_eis/build/
+/src/battery_eis/reports/
+/src/battery_eis/data/
+/outputs/
+.Xil/
+*.jou
+*.wdb
+/sim/host_tests.log

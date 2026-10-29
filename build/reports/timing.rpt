@@ -1,0 +1,1266 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Thu Oct 22 19:59:08 2026
+| Host         : cyx running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -file D:/cyx/nt/battery_eis_be03_20261022_1950/reports/timing.rpt
+| Design       : base_wrapper
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+Rule       Severity  Description                                  Violations  
+---------  --------  -------------------------------------------  ----------  
+LUTAR-1    Warning   LUT drives async reset alert                 3           
+TIMING-9   Warning   Unknown CDC Logic                            1           
+TIMING-18  Warning   Missing input or output delay                21          
+XDCB-5     Warning   Runtime inefficient way to find pin objects  1           
+XDCH-2     Warning   Same min and max delay values on IO port     6           
+
+Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (8)
+6. checking no_output_delay (18)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (8)
+------------------------------
+ There are 7 input ports with no input delay specified. (HIGH)
+
+ There is 1 input port with no input delay but user has a false path constraint. (MEDIUM)
+
+
+6. checking no_output_delay (18)
+--------------------------------
+ There are 18 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      0.227        0.000                      0                42750        0.018        0.000                      0                42514        0.333        0.000                       0                 18622  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock                            Waveform(ns)         Period(ns)      Frequency(MHz)
+-----                            ------------         ----------      --------------
+clk_fpga_0                       {0.000 5.000}        10.000          100.000         
+  I                              {0.000 1.000}        2.000           500.000         
+    hdmi_out_PXL_CLK_O           {0.000 4.000}        10.000          100.000         
+  clk_out1_base_clk_wiz_10MHz_0  {0.000 50.000}       100.000         10.000          
+  clkfbout_base_clk_wiz_10MHz_0  {0.000 10.000}       20.000          50.000          
+  mmcm_fbclk_out                 {0.000 5.000}        10.000          100.000         
+clk_fpga_1                       {0.000 3.500}        7.000           142.857         
+clk_fpga_2                       {0.000 2.500}        5.000           200.000         
+clk_fpga_3                       {0.000 5.000}        10.000          100.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock                                WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----                                -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+clk_fpga_0                             1.416        0.000                      0                 8344        0.033        0.000                      0                 8344        2.500        0.000                       0                  4265  
+  I                                                                                                                                                                                0.333        0.000                       0                    11  
+    hdmi_out_PXL_CLK_O                 0.953        0.000                      0                 5382        0.104        0.000                      0                 5382        3.020        0.000                       0                  2854  
+  clk_out1_base_clk_wiz_10MHz_0                                                                                                                                                   97.845        0.000                       0                     2  
+  clkfbout_base_clk_wiz_10MHz_0                                                                                                                                                   17.845        0.000                       0                     3  
+  mmcm_fbclk_out                                                                                                                                                                   8.751        0.000                       0                     2  
+clk_fpga_1                             0.227        0.000                      0                13564        0.018        0.000                      0                13564        2.250        0.000                       0                  5887  
+clk_fpga_3                             0.378        0.000                      0                15128        0.040        0.000                      0                15128        4.020        0.000                       0                  5598  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock          To Clock                WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------          --------                -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+hdmi_out_PXL_CLK_O  clk_fpga_0                8.118        0.000                      0                   34                                                                        
+clk_fpga_1          clk_fpga_0               28.451        0.000                      0                   42                                                                        
+clk_fpga_0          hdmi_out_PXL_CLK_O        8.507        0.000                      0                   42                                                                        
+clk_fpga_1          hdmi_out_PXL_CLK_O        5.426        0.000                      0                   23                                                                        
+clk_fpga_0          clk_fpga_1               19.409        0.000                      0                   72                                                                        
+hdmi_out_PXL_CLK_O  clk_fpga_1                8.519        0.000                      0                   23                                                                        
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group         From Clock         To Clock               WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------         ----------         --------               -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+**async_default**  clk_fpga_1         clk_fpga_1               3.478        0.000                      0                   96        0.563        0.000                      0                   96  
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_fpga_0
+  To Clock:  clk_fpga_0
+
+Setup :            0  Failing Endpoints,  Worst Slack        1.416ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.033ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        2.500ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             1.416ns  (required time - arrival time)
+  Source:                 base_i/rst_ps7_0_fclk0/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            base_i/video/hdmi_out/frontend/axi_dynclk/U0/axi_dynclk_S00_AXI_inst/slv_reg2_reg[27]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        8.006ns  (logic 0.642ns (8.019%)  route 7.364ns (91.981%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        0.005ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.822ns = ( 12.822 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.946ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    base_i/ps7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.101     1.294 r  base_i/ps7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=4266, routed)        1.652     2.946    base_i/rst_ps7_0_fclk0/U0/slowest_sync_clk
+    SLICE_X46Y98         FDRE                                         r  base_i/rst_ps7_0_fclk0/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X46Y98         FDRE (Prop_fdre_C_Q)         0.518     3.464 f  base_i/rst_ps7_0_fclk0/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+                         net (fo=134, routed)         3.129     6.593    base_i/video/hdmi_out/frontend/axi_dynclk/U0/axi_dynclk_S00_AXI_inst/s00_axi_aresetn
+    SLICE_X104Y108       LUT1 (Prop_lut1_I0_O)        0.124     6.717 r  base_i/video/hdmi_out/frontend/axi_dynclk/U0/axi_dynclk_S00_AXI_inst/axi_awready_i_1/O
+                         net (fo=282, routed)         4.235    10.952    base_i/video/hdmi_out/frontend/axi_dynclk/U0/axi_dynclk_S00_AXI_inst/SR[0]
+    SLICE_X39Y118        FDRE                                         r  base_i/video/hdmi_out/frontend/axi_dynclk/U0/axi_dynclk_S00_AXI_inst/slv_reg2_reg[27]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    base_i/ps7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.091    11.179 r  base_i/ps7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=4266, routed)        1.643    12.822    base_i/video/hdmi_out/frontend/axi_dynclk/U0/axi_dynclk_S00_AXI_inst/REF_CLK_I
+    SLICE_X39Y118        FDRE                                         r  base_i/video/hdmi_out/frontend/axi_dynclk/U0/axi_dynclk_S00_AXI_inst/slv_reg2_reg[27]/C
+                         clock pessimism              0.129    12.951    
+                         clock uncertainty           -0.154    12.797    
+    SLICE_X39Y118        FDRE (Setup_fdre_C_R)       -0.429    12.368    base_i/video/hdmi_out/frontend/axi_dynclk/U0/axi_dynclk_S00_AXI_inst/slv_reg2_reg[27]
+  -------------------------------------------------------------------
+                         required time                         12.368    
+                         arrival time                         -10.952    
+  -------------------------------------------------------------------
+                         slack                                  1.416    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.033ns  (arrival time - required time)
+  Source:                 base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            base_i/video/axi_interconnect_0/m04_couplers/m04_regslice/inst/r.r_pipe/m_payload_i_reg[8]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.369ns  (logic 0.141ns (38.189%)  route 0.228ns (61.811%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.264ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.269ns
+    Source Clock Delay      (SCD):    0.966ns
+    Clock Pessimism Removal (CPR):    0.039ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    base_i/ps7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.026     0.336 r  base_i/ps7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=4266, routed)        0.630     0.966    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>/<hidden>
+    SLICE_X53Y114        FDRE                                         r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X53Y114        FDRE (Prop_fdre_C_Q)         0.141     1.107 r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.228     1.335    base_i/video/axi_interconnect_0/m04_couplers/m04_regslice/inst/r.r_pipe/D[8]
+    SLICE_X48Y116        FDRE                                         r  base_i/video/axi_interconnect_0/m04_couplers/m04_regslice/inst/r.r_pipe/m_payload_i_reg[8]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    base_i/ps7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.029     0.366 r  base_i/ps7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=4266, routed)        0.903     1.269    base_i/video/axi_interconnect_0/m04_couplers/m04_regslice/inst/r.r_pipe/aclk
+    SLICE_X48Y116        FDRE                                         r  base_i/video/axi_interconnect_0/m04_couplers/m04_regslice/inst/r.r_pipe/m_payload_i_reg[8]/C
+                         clock pessimism             -0.039     1.230    
+    SLICE_X48Y116        FDRE (Hold_fdre_C_D)         0.072     1.302    base_i/video/axi_interconnect_0/m04_couplers/m04_regslice/inst/r.r_pipe/m_payload_i_reg[8]
+  -------------------------------------------------------------------
+                         required time                         -1.302    
+                         arrival time                           1.335    
+  -------------------------------------------------------------------
+                         slack                                  0.033    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clk_fpga_0
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { base_i/ps7_0/inst/PS7_i/FCLKCLK[0] }
+
+Check Type        Corner  Lib Pin            Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
+Min Period        n/a     MMCME2_ADV/DCLK    n/a            4.999         10.000      5.001      MMCME2_ADV_X1Y2  base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst/DCLK
+Max Period        n/a     MMCME2_ADV/CLKIN1  n/a            100.000       10.000      90.000     MMCME2_ADV_X1Y0  base_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKIN1
+Low Pulse Width   Slow    MMCME2_ADV/DCLK    n/a            2.499         5.000       2.501      MMCME2_ADV_X1Y2  base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst/DCLK
+High Pulse Width  Slow    MMCME2_ADV/DCLK    n/a            2.499         5.000       2.501      MMCME2_ADV_X1Y2  base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst/DCLK
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  I
+  To Clock:  I
+
+Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack        0.333ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         I
+Waveform(ns):       { 0.000 1.000 }
+Period(ns):         2.000
+Sources:            { base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst/CLKOUT0 }
+
+Check Type  Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
+Min Period  n/a     OSERDESE2/CLK       n/a            1.667         2.000       0.333      OLOGIC_X1Y128    base_i/video/hdmi_out/frontend/rgb2dvi_0/U0/ClockSerializer/SerializerMaster/CLK
+Max Period  n/a     MMCME2_ADV/CLKOUT0  n/a            213.360       2.000       211.360    MMCME2_ADV_X1Y2  base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst/CLKOUT0
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  hdmi_out_PXL_CLK_O
+  To Clock:  hdmi_out_PXL_CLK_O
+
+Setup :            0  Failing Endpoints,  Worst Slack        0.953ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.104ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        3.020ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.953ns  (required time - arrival time)
+  Source:                 base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by hdmi_out_PXL_CLK_O  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Destination:            base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by hdmi_out_PXL_CLK_O  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Path Group:             hdmi_out_PXL_CLK_O
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (hdmi_out_PXL_CLK_O rise@10.000ns - hdmi_out_PXL_CLK_O rise@0.000ns)
+  Data Path Delay:        8.426ns  (logic 0.580ns (6.884%)  route 7.846ns (93.116%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        -0.126ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.736ns = ( 15.736 - 10.000 ) 
+    Source Clock Delay      (SCD):    6.432ns
+    Clock Pessimism Removal (CPR):    0.570ns
+  Clock Uncertainty:      0.066ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.112ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock hdmi_out_PXL_CLK_O rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    base_i/ps7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.101     1.294 r  base_i/ps7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=4266, routed)        1.980     3.274    base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/REF_CLK_I
+    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                      0.088     3.362 r  base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst/CLKOUT0
+                         net (fo=2, routed)           1.063     4.425    base_i/video/hdmi_out/frontend/axi_dynclk/U0/I
+    BUFR_X1Y9            BUFR (Prop_bufr_I_O)         1.031     5.456 r  base_i/video/hdmi_out/frontend/axi_dynclk/U0/BUFR_inst/O
+                         net (fo=2854, routed)        0.976     6.432    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+    SLICE_X67Y103        FDRE                                         r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X67Y103        FDRE (Prop_fdre_C_Q)         0.456     6.888 f  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+                         net (fo=69, routed)          2.359     9.247    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+    SLICE_X56Y120        LUT1 (Prop_lut1_I0_O)        0.124     9.371 r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+                         net (fo=1133, routed)        5.487    14.858    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+    SLICE_X95Y107        FDRE                                         r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock hdmi_out_PXL_CLK_O rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    base_i/ps7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.091    11.179 r  base_i/ps7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=4266, routed)        1.770    12.949    base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/REF_CLK_I
+    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                      0.083    13.032 r  base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst/CLKOUT0
+                         net (fo=2, routed)           0.960    13.992    base_i/video/hdmi_out/frontend/axi_dynclk/U0/I
+    BUFR_X1Y9            BUFR (Prop_bufr_I_O)         0.918    14.910 r  base_i/video/hdmi_out/frontend/axi_dynclk/U0/BUFR_inst/O
+                         net (fo=2854, routed)        0.826    15.736    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+    SLICE_X95Y107        FDRE                                         r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+                         clock pessimism              0.570    16.306    
+                         clock uncertainty           -0.066    16.240    
+    SLICE_X95Y107        FDRE (Setup_fdre_C_R)       -0.429    15.811    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                         15.811    
+                         arrival time                         -14.858    
+  -------------------------------------------------------------------
+                         slack                                  0.953    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.104ns  (arrival time - required time)
+  Source:                 base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by hdmi_out_PXL_CLK_O  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Destination:            base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by hdmi_out_PXL_CLK_O  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Path Group:             hdmi_out_PXL_CLK_O
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (hdmi_out_PXL_CLK_O rise@0.000ns - hdmi_out_PXL_CLK_O rise@0.000ns)
+  Data Path Delay:        0.238ns  (logic 0.186ns (78.117%)  route 0.052ns (21.883%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.525ns
+    Source Clock Delay      (SCD):    1.981ns
+    Clock Pessimism Removal (CPR):    0.531ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock hdmi_out_PXL_CLK_O rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    base_i/ps7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.026     0.336 r  base_i/ps7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=4266, routed)        0.672     1.008    base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/REF_CLK_I
+    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                      0.050     1.058 r  base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst/CLKOUT0
+                         net (fo=2, routed)           0.363     1.421    base_i/video/hdmi_out/frontend/axi_dynclk/U0/I
+    BUFR_X1Y9            BUFR (Prop_bufr_I_O)         0.270     1.691 r  base_i/video/hdmi_out/frontend/axi_dynclk/U0/BUFR_inst/O
+                         net (fo=2854, routed)        0.290     1.981    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+    SLICE_X91Y102        FDRE                                         r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X91Y102        FDRE (Prop_fdre_C_Q)         0.141     2.122 r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+                         net (fo=1, routed)           0.052     2.174    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+    SLICE_X90Y102        LUT3 (Prop_lut3_I2_O)        0.045     2.219 r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     2.219    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+    SLICE_X90Y102        FDRE                                         r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock hdmi_out_PXL_CLK_O rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    base_i/ps7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.029     0.366 r  base_i/ps7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=4266, routed)        0.945     1.311    base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/REF_CLK_I
+    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                      0.053     1.364 r  base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst/CLKOUT0
+                         net (fo=2, routed)           0.402     1.766    base_i/video/hdmi_out/frontend/axi_dynclk/U0/I
+    BUFR_X1Y9            BUFR (Prop_bufr_I_O)         0.431     2.197 r  base_i/video/hdmi_out/frontend/axi_dynclk/U0/BUFR_inst/O
+                         net (fo=2854, routed)        0.328     2.525    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+    SLICE_X90Y102        FDRE                                         r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+                         clock pessimism             -0.531     1.994    
+    SLICE_X90Y102        FDRE (Hold_fdre_C_D)         0.121     2.115    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                         -2.115    
+                         arrival time                           2.219    
+  -------------------------------------------------------------------
+                         slack                                  0.104    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         hdmi_out_PXL_CLK_O
+Waveform(ns):       { 0.000 4.000 }
+Period(ns):         10.000
+Sources:            { base_i/video/hdmi_out/frontend/axi_dynclk/U0/BUFR_inst/O }
+
+Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location       Pin
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X4Y23   base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0/CLKBWRCLK
+Low Pulse Width   Slow    SRL16E/CLK          n/a            0.980         6.000       5.020      SLICE_X92Y106  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         4.000       3.020      SLICE_X92Y106  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_out1_base_clk_wiz_10MHz_0
+  To Clock:  clk_out1_base_clk_wiz_10MHz_0
+
+Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack       97.845ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clk_out1_base_clk_wiz_10MHz_0
+Waveform(ns):       { 0.000 50.000 }
+Period(ns):         100.000
+Sources:            { base_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKOUT0 }
+
+Check Type  Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
+Min Period  n/a     BUFG/I              n/a            2.155         100.000     97.845     BUFGCTRL_X0Y0    base_i/clk_wiz_10MHz/inst/clkout1_buf/I
+Max Period  n/a     MMCME2_ADV/CLKOUT0  n/a            213.360       100.000     113.360    MMCME2_ADV_X1Y0  base_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKOUT0
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clkfbout_base_clk_wiz_10MHz_0
+  To Clock:  clkfbout_base_clk_wiz_10MHz_0
+
+Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack       17.845ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clkfbout_base_clk_wiz_10MHz_0
+Waveform(ns):       { 0.000 10.000 }
+Period(ns):         20.000
+Sources:            { base_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBOUT }
+
+Check Type  Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
+Min Period  n/a     BUFG/I              n/a            2.155         20.000      17.845     BUFGCTRL_X0Y1    base_i/clk_wiz_10MHz/inst/clkf_buf/I
+Max Period  n/a     MMCME2_ADV/CLKFBIN  n/a            100.000       20.000      80.000     MMCME2_ADV_X1Y0  base_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBIN
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  mmcm_fbclk_out
+  To Clock:  mmcm_fbclk_out
+
+Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack        8.751ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         mmcm_fbclk_out
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst/CLKFBOUT }
+
+Check Type  Corner  Lib Pin              Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
+Min Period  n/a     MMCME2_ADV/CLKFBOUT  n/a            1.249         10.000      8.751      MMCME2_ADV_X1Y2  base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst/CLKFBOUT
+Max Period  n/a     MMCME2_ADV/CLKFBIN   n/a            100.000       10.000      90.000     MMCME2_ADV_X1Y2  base_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst/CLKFBIN
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_fpga_1
+  To Clock:  clk_fpga_1
+
+Setup :            0  Failing Endpoints,  Worst Slack        0.227ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.018ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        2.250ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.227ns  (required time - arrival time)
+  Source:                 base_i/video/hdmi_out/color_convert/inst/v_p1_V_reg_1127_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_1  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Destination:            base_i/video/hdmi_out/color_convert/inst/r_V_9_reg_1257_reg[17]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_1  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Path Group:             clk_fpga_1
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            7.000ns  (clk_fpga_1 rise@7.000ns - clk_fpga_1 rise@0.000ns)
+  Data Path Delay:        6.672ns  (logic 2.793ns (41.862%)  route 3.879ns (58.138%))
+  Logic Levels:           8  (CARRY4=5 LUT3=1 LUT4=1 LUT6=1)
+  Clock Path Skew:        -0.099ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.713ns = ( 9.713 - 7.000 ) 
+    Source Clock Delay      (SCD):    2.941ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.111ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.210ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_1 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[1]
+                         net (fo=1, routed)           1.193     1.193    base_i/ps7_0/inst/FCLK_CLK_unbuffered[1]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  base_i/ps7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG/O
+                         net (fo=5887, routed)        1.647     2.941    base_i/video/hdmi_out/color_convert/inst/ap_clk
+    SLICE_X42Y87         FDRE                                         r  base_i/video/hdmi_out/color_convert/inst/v_p1_V_reg_1127_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y87         FDRE (Prop_fdre_C_Q)         0.518     3.459 r  base_i/video/hdmi_out/color_convert/inst/v_p1_V_reg_1127_reg[2]/Q
+                         net (fo=60, routed)          1.561     5.020    base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__71_carry__1_0[2]
+    SLICE_X60Y86         LUT6 (Prop_lut6_I0_O)        0.124     5.144 r  base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__0_carry__0_i_4__4/O
+                         net (fo=2, routed)           0.760     5.903    base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__0_carry__0_i_4__4_n_0
+    SLICE_X59Y87         CARRY4 (Prop_carry4_DI[0]_O[2])
+                                                      0.556     6.459 r  base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__0_carry__0/O[2]
+                         net (fo=2, routed)           0.851     7.310    base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__0_carry__0_n_5
+    SLICE_X58Y85         LUT3 (Prop_lut3_I2_O)        0.331     7.641 r  base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__106_carry_i_1__4/O
+                         net (fo=2, routed)           0.708     8.349    base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__106_carry_i_1__4_n_0
+    SLICE_X58Y85         LUT4 (Prop_lut4_I0_O)        0.331     8.680 r  base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__106_carry_i_5__4/O
+                         net (fo=1, routed)           0.000     8.680    base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__106_carry_i_5__4_n_0
+    SLICE_X58Y85         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376     9.056 r  base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__106_carry/CO[3]
+                         net (fo=1, routed)           0.000     9.056    base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__106_carry_n_0
+    SLICE_X58Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.173 r  base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__106_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     9.173    base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__106_carry__0_n_0
+    SLICE_X58Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.290 r  base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__106_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     9.290    base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__106_carry__1_n_0
+    SLICE_X58Y88         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323     9.613 r  base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5/color_convert_mul_10s_8ns_18_1_1_Multiplier_0_U/p__106_carry__2/O[1]
+                         net (fo=1, routed)           0.000     9.613    base_i/video/hdmi_out/color_convert/inst/mul_10s_8ns_18_1_1_U5_n_15
+    SLICE_X58Y88         FDRE                                         r  base_i/video/hdmi_out/color_convert/inst/r_V_9_reg_1257_reg[17]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_1 rise edge)
+                                                      7.000     7.000 r  
+    PS7_X0Y0             PS7                          0.000     7.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[1]
+                         net (fo=1, routed)           1.088     8.088    base_i/ps7_0/inst/FCLK_CLK_unbuffered[1]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     8.179 r  base_i/ps7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG/O
+                         net (fo=5887, routed)        1.534     9.713    base_i/video/hdmi_out/color_convert/inst/ap_clk
+    SLICE_X58Y88         FDRE                                         r  base_i/video/hdmi_out/color_convert/inst/r_V_9_reg_1257_reg[17]/C
+                         clock pessimism              0.129     9.842    
+                         clock uncertainty           -0.111     9.731    
+    SLICE_X58Y88         FDRE (Setup_fdre_C_D)        0.109     9.840    base_i/video/hdmi_out/color_convert/inst/r_V_9_reg_1257_reg[17]
+  -------------------------------------------------------------------
+                         required time                          9.840    
+                         arrival time                          -9.613    
+  -------------------------------------------------------------------
+                         slack                                  0.227    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.018ns  (arrival time - required time)
+  Source:                 base_i/video/hdmi_out/color_convert/inst/control_s_axi_U/rdata_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_1  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Destination:            base_i/video/axi_interconnect_0/m02_couplers/m02_regslice/inst/r.r_pipe/m_payload_i_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_1  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Path Group:             clk_fpga_1
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_1 rise@0.000ns - clk_fpga_1 rise@0.000ns)
+  Data Path Delay:        0.433ns  (logic 0.141ns (32.578%)  route 0.292ns (67.422%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.349ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.276ns
+    Source Clock Delay      (SCD):    0.892ns
+    Clock Pessimism Removal (CPR):    0.035ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_1 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[1]
+                         net (fo=1, routed)           0.310     0.310    base_i/ps7_0/inst/FCLK_CLK_unbuffered[1]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  base_i/ps7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG/O
+                         net (fo=5887, routed)        0.556     0.892    base_i/video/hdmi_out/color_convert/inst/control_s_axi_U/ap_clk
+    SLICE_X48Y97         FDRE                                         r  base_i/video/hdmi_out/color_convert/inst/control_s_axi_U/rdata_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y97         FDRE (Prop_fdre_C_Q)         0.141     1.033 r  base_i/video/hdmi_out/color_convert/inst/control_s_axi_U/rdata_reg[3]/Q
+                         net (fo=1, routed)           0.292     1.324    base_i/video/axi_interconnect_0/m02_couplers/m02_regslice/inst/r.r_pipe/m_axi_rdata[3]
+    SLICE_X48Y106        FDRE                                         r  base_i/video/axi_interconnect_0/m02_couplers/m02_regslice/inst/r.r_pipe/m_payload_i_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_1 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[1]
+                         net (fo=1, routed)           0.337     0.337    base_i/ps7_0/inst/FCLK_CLK_unbuffered[1]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  base_i/ps7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG/O
+                         net (fo=5887, routed)        0.910     1.276    base_i/video/axi_interconnect_0/m02_couplers/m02_regslice/inst/r.r_pipe/aclk
+    SLICE_X48Y106        FDRE                                         r  base_i/video/axi_interconnect_0/m02_couplers/m02_regslice/inst/r.r_pipe/m_payload_i_reg[3]/C
+                         clock pessimism             -0.035     1.241    
+    SLICE_X48Y106        FDRE (Hold_fdre_C_D)         0.066     1.307    base_i/video/axi_interconnect_0/m02_couplers/m02_regslice/inst/r.r_pipe/m_payload_i_reg[3]
+  -------------------------------------------------------------------
+                         required time                         -1.307    
+                         arrival time                           1.324    
+  -------------------------------------------------------------------
+                         slack                                  0.018    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clk_fpga_1
+Waveform(ns):       { 0.000 3.500 }
+Period(ns):         7.000
+Sources:            { base_i/ps7_0/inst/PS7_i/FCLKCLK[1] }
+
+Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
+Min Period        n/a     RAMB18E1/CLKARDCLK  n/a            2.944         7.000       4.056      RAMB18_X2Y24  base_i/video/axi_vdma/U0/GEN_SPRT_FOR_MM2S.MM2S_LINEBUFFER_I/GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO/xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/CLKARDCLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         3.500       2.250      SLICE_X26Y39  base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         3.500       2.250      SLICE_X26Y39  base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_fpga_3
+  To Clock:  clk_fpga_3
+
+Setup :            0  Failing Endpoints,  Worst Slack        0.378ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.040ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        4.020ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.378ns  (required time - arrival time)
+  Source:                 base_i/waveshare_lockin/inst/impl/engine/dac_cs_reg/C
+                            (rising edge-triggered cell FDSE clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            dac_cs
+                            (output port clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_3
+  Path Type:              Max at Slow Process Corner
+  Requirement:            10.000ns  (MaxDelay Path 10.000ns)
+  Data Path Delay:        6.429ns  (logic 4.044ns (62.896%)  route 2.385ns (37.104%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           0.000ns
+  Clock Path Skew:        -3.039ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.000ns
+    Source Clock Delay      (SCD):    3.039ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       MaxDelay Path 10.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_3 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[3]
+                         net (fo=1, routed)           1.193     1.193    base_i/ps7_0/inst/FCLK_CLK_unbuffered[3]
+    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.101     1.294 r  base_i/ps7_0/inst/buffer_fclk_clk_3.FCLK_CLK_3_BUFG/O
+                         net (fo=5599, routed)        1.745     3.039    base_i/waveshare_lockin/inst/impl/engine/clk_100m
+    SLICE_X10Y19         FDSE                                         r  base_i/waveshare_lockin/inst/impl/engine/dac_cs_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X10Y19         FDSE (Prop_fdse_C_Q)         0.518     3.557 r  base_i/waveshare_lockin/inst/impl/engine/dac_cs_reg/Q
+                         net (fo=1, routed)           2.385     5.942    dac_cs_OBUF
+    W6                   OBUF (Prop_obuf_I_O)         3.526     9.468 r  dac_cs_OBUF_inst/O
+                         net (fo=0)                   0.000     9.468    dac_cs
+    W6                                                                r  dac_cs (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   10.000    10.000    
+                         clock pessimism              0.000    10.000    
+                         clock uncertainty           -0.154     9.846    
+                         output delay                -0.000     9.846    
+  -------------------------------------------------------------------
+                         required time                          9.846    
+                         arrival time                          -9.468    
+  -------------------------------------------------------------------
+                         slack                                  0.378    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.040ns  (arrival time - required time)
+  Source:                 base_i/ps7_0_axi_periph_1/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awid_r_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            base_i/ps7_0_axi_periph_1/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][15]_srl4/D
+                            (rising edge-triggered cell SRL16E clocked by clk_fpga_3  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_3
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_3 rise@0.000ns - clk_fpga_3 rise@0.000ns)
+  Data Path Delay:        0.256ns  (logic 0.141ns (55.071%)  route 0.115ns (44.929%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.033ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.293ns
+    Source Clock Delay      (SCD):    0.992ns
+    Clock Pessimism Removal (CPR):    0.268ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_3 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[3]
+                         net (fo=1, routed)           0.310     0.310    base_i/ps7_0/inst/FCLK_CLK_unbuffered[3]
+    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.026     0.336 r  base_i/ps7_0/inst/buffer_fclk_clk_3.FCLK_CLK_3_BUFG/O
+                         net (fo=5599, routed)        0.656     0.992    base_i/ps7_0_axi_periph_1/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/aclk
+    SLICE_X29Y110        FDRE                                         r  base_i/ps7_0_axi_periph_1/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awid_r_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X29Y110        FDRE (Prop_fdre_C_Q)         0.141     1.133 r  base_i/ps7_0_axi_periph_1/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awid_r_reg[7]/Q
+                         net (fo=1, routed)           0.115     1.248    base_i/ps7_0_axi_periph_1/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/in[11]
+    SLICE_X26Y110        SRL16E                                       r  base_i/ps7_0_axi_periph_1/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][15]_srl4/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_3 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[3]
+                         net (fo=1, routed)           0.337     0.337    base_i/ps7_0/inst/FCLK_CLK_unbuffered[3]
+    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.029     0.366 r  base_i/ps7_0/inst/buffer_fclk_clk_3.FCLK_CLK_3_BUFG/O
+                         net (fo=5599, routed)        0.927     1.293    base_i/ps7_0_axi_periph_1/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/aclk
+    SLICE_X26Y110        SRL16E                                       r  base_i/ps7_0_axi_periph_1/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][15]_srl4/CLK
+                         clock pessimism             -0.268     1.025    
+    SLICE_X26Y110        SRL16E (Hold_srl16e_CLK_D)
+                                                      0.183     1.208    base_i/ps7_0_axi_periph_1/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][15]_srl4
+  -------------------------------------------------------------------
+                         required time                         -1.208    
+                         arrival time                           1.248    
+  -------------------------------------------------------------------
+                         slack                                  0.040    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clk_fpga_3
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { base_i/ps7_0/inst/PS7_i/FCLKCLK[3] }
+
+Check Type        Corner  Lib Pin      Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
+Min Period        n/a     DSP48E1/CLK  n/a            3.884         10.000      6.116      DSP48_X2Y16   base_i/waveshare_lockin/inst/impl/moments/product_reg[7]/CLK
+Low Pulse Width   Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X30Y91  base_i/ps7_0_axi_periph_1/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][0]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X30Y91  base_i/ps7_0_axi_periph_1/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][0]_srl32/CLK
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  hdmi_out_PXL_CLK_O
+  To Clock:  clk_fpga_0
+
+Setup :            0  Failing Endpoints,  Worst Slack        8.118ns,  Total Violation        0.000ns
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             8.118ns  (required time - arrival time)
+  Source:                 base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by hdmi_out_PXL_CLK_O  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Destination:            base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (MaxDelay Path 10.000ns)
+  Data Path Delay:        1.779ns  (logic 0.518ns (29.113%)  route 1.261ns (70.887%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 10.000ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X86Y104                                     0.000     0.000 r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+    SLICE_X86Y104        FDRE (Prop_fdre_C_Q)         0.518     0.518 r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+                         net (fo=1, routed)           1.261     1.779    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+    SLICE_X56Y108        FDRE                                         r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   10.000    10.000    
+    SLICE_X56Y108        FDRE (Setup_fdre_C_D)       -0.103     9.897    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          9.897    
+                         arrival time                          -1.779    
+  -------------------------------------------------------------------
+                         slack                                  8.118    
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_fpga_1
+  To Clock:  clk_fpga_0
+
+Setup :            0  Failing Endpoints,  Worst Slack       28.451ns,  Total Violation        0.000ns
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             28.451ns  (required time - arrival time)
+  Source:                 base_i/video/axi_interconnect_0/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_resp_r/handshake/src_hsdata_ff_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_1  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Destination:            base_i/video/axi_interconnect_0/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_resp_r/handshake/dest_hsdata_ff_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            30.000ns  (MaxDelay Path 30.000ns)
+  Data Path Delay:        1.454ns  (logic 0.518ns (35.632%)  route 0.936ns (64.368%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 30.000ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X46Y109                                     0.000     0.000 r  base_i/video/axi_interconnect_0/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_resp_r/handshake/src_hsdata_ff_reg[0]/C
+    SLICE_X46Y109        FDRE (Prop_fdre_C_Q)         0.518     0.518 r  base_i/video/axi_interconnect_0/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_resp_r/handshake/src_hsdata_ff_reg[0]/Q
+                         net (fo=1, routed)           0.936     1.454    base_i/video/axi_interconnect_0/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_resp_r/handshake/src_hsdata_ff[0]
+    SLICE_X47Y116        FDRE                                         r  base_i/video/axi_interconnect_0/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_resp_r/handshake/dest_hsdata_ff_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   30.000    30.000    
+    SLICE_X47Y116        FDRE (Setup_fdre_C_D)       -0.095    29.905    base_i/video/axi_interconnect_0/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_resp_r/handshake/dest_hsdata_ff_reg[0]
+  -------------------------------------------------------------------
+                         required time                         29.905    
+                         arrival time                          -1.454    
+  -------------------------------------------------------------------
+                         slack                                 28.451    
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_fpga_0
+  To Clock:  hdmi_out_PXL_CLK_O
+
+Setup :            0  Failing Endpoints,  Worst Slack        8.507ns,  Total Violation        0.000ns
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             8.507ns  (required time - arrival time)
+  Source:                 base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by hdmi_out_PXL_CLK_O  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Path Group:             hdmi_out_PXL_CLK_O
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (MaxDelay Path 10.000ns)
+  Data Path Delay:        1.213ns  (logic 0.419ns (34.549%)  route 0.794ns (65.451%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 10.000ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X51Y106                                     0.000     0.000 r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+    SLICE_X51Y106        FDRE (Prop_fdre_C_Q)         0.419     0.419 r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>
+                         net (fo=1, routed)           0.794     1.213    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+    SLICE_X52Y106        FDRE                                         r  base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   10.000    10.000    
+    SLICE_X52Y106        FDRE (Setup_fdre_C_D)       -0.280     9.720    base_wrapper/base/video_imp_1KRFORE/hdmi_out_imp_1RSCXJD/frontend_imp_1JYZ9V6/base_vtc_out_0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          9.720    
+                         arrival time                          -1.213    
+  -------------------------------------------------------------------
+                         slack                                  8.507    
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_fpga_1
+  To Clock:  hdmi_out_PXL_CLK_O
+
+Setup :            0  Failing Endpoints,  Worst Slack        5.426ns,  Total Violation        0.000ns
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             5.426ns  (required time - arrival time)
+  Source:                 base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst/src_gray_ff_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_1  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Destination:            base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst/dest_graysync_ff_reg[0][2]/D
+                            (rising edge-triggered cell FDRE clocked by hdmi_out_PXL_CLK_O  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Path Group:             hdmi_out_PXL_CLK_O
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            7.000ns  (MaxDelay Path 7.000ns)
+  Data Path Delay:        1.479ns  (logic 0.456ns (30.822%)  route 1.023ns (69.178%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 7.000ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X88Y120                                     0.000     0.000 r  base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst/src_gray_ff_reg[2]/C
+    SLICE_X88Y120        FDRE (Prop_fdre_C_Q)         0.456     0.456 r  base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst/src_gray_ff_reg[2]/Q
+                         net (fo=1, routed)           1.023     1.479    base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst/async_path[2]
+    SLICE_X87Y120        FDRE                                         r  base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst/dest_graysync_ff_reg[0][2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    7.000     7.000    
+    SLICE_X87Y120        FDRE (Setup_fdre_C_D)       -0.095     6.905    base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst/dest_graysync_ff_reg[0][2]
+  -------------------------------------------------------------------
+                         required time                          6.905    
+                         arrival time                          -1.479    
+  -------------------------------------------------------------------
+                         slack                                  5.426    
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_fpga_0
+  To Clock:  clk_fpga_1
+
+Setup :            0  Failing Endpoints,  Worst Slack       19.409ns,  Total Violation        0.000ns
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             19.409ns  (required time - arrival time)
+  Source:                 base_i/video/axi_interconnect_0/m01_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_fwd_w/handshake/src_hsdata_ff_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            base_i/video/axi_interconnect_0/m01_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_fwd_w/handshake/dest_hsdata_ff_reg[8]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_1  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Path Group:             clk_fpga_1
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            21.000ns  (MaxDelay Path 21.000ns)
+  Data Path Delay:        1.389ns  (logic 0.419ns (30.165%)  route 0.970ns (69.835%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 21.000ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y119                                     0.000     0.000 r  base_i/video/axi_interconnect_0/m01_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_fwd_w/handshake/src_hsdata_ff_reg[8]/C
+    SLICE_X37Y119        FDRE (Prop_fdre_C_Q)         0.419     0.419 r  base_i/video/axi_interconnect_0/m01_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_fwd_w/handshake/src_hsdata_ff_reg[8]/Q
+                         net (fo=1, routed)           0.970     1.389    base_i/video/axi_interconnect_0/m01_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_fwd_w/handshake/src_hsdata_ff[8]
+    SLICE_X36Y119        FDRE                                         r  base_i/video/axi_interconnect_0/m01_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_fwd_w/handshake/dest_hsdata_ff_reg[8]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   21.000    21.000    
+    SLICE_X36Y119        FDRE (Setup_fdre_C_D)       -0.202    20.798    base_i/video/axi_interconnect_0/m01_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.clock_conv_lite_fwd_w/handshake/dest_hsdata_ff_reg[8]
+  -------------------------------------------------------------------
+                         required time                         20.798    
+                         arrival time                          -1.389    
+  -------------------------------------------------------------------
+                         slack                                 19.409    
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  hdmi_out_PXL_CLK_O
+  To Clock:  clk_fpga_1
+
+Setup :            0  Failing Endpoints,  Worst Slack        8.519ns,  Total Violation        0.000ns
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             8.519ns  (required time - arrival time)
+  Source:                 base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst/src_gray_ff_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by hdmi_out_PXL_CLK_O  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Destination:            base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst/dest_graysync_ff_reg[0][10]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_1  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Path Group:             clk_fpga_1
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (MaxDelay Path 10.000ns)
+  Data Path Delay:        1.386ns  (logic 0.518ns (37.362%)  route 0.868ns (62.638%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 10.000ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X86Y127                                     0.000     0.000 r  base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst/src_gray_ff_reg[10]/C
+    SLICE_X86Y127        FDRE (Prop_fdre_C_Q)         0.518     0.518 r  base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst/src_gray_ff_reg[10]/Q
+                         net (fo=1, routed)           0.868     1.386    base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst/async_path[10]
+    SLICE_X85Y127        FDRE                                         r  base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst/dest_graysync_ff_reg[0][10]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   10.000    10.000    
+    SLICE_X85Y127        FDRE (Setup_fdre_C_D)       -0.095     9.905    base_i/video/hdmi_out/frontend/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst/dest_graysync_ff_reg[0][10]
+  -------------------------------------------------------------------
+                         required time                          9.905    
+                         arrival time                          -1.386    
+  -------------------------------------------------------------------
+                         slack                                  8.519    
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+Path Group:  **async_default**
+From Clock:  clk_fpga_1
+  To Clock:  clk_fpga_1
+
+Setup :            0  Failing Endpoints,  Worst Slack        3.478ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.563ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             3.478ns  (required time - arrival time)
+  Source:                 base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_1  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Destination:            base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+                            (recovery check against rising-edge clock clk_fpga_1  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Path Group:             **async_default**
+  Path Type:              Recovery (Max at Slow Process Corner)
+  Requirement:            7.000ns  (clk_fpga_1 rise@7.000ns - clk_fpga_1 rise@0.000ns)
+  Data Path Delay:        2.981ns  (logic 0.718ns (24.089%)  route 2.263ns (75.911%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.748ns = ( 9.748 - 7.000 ) 
+    Source Clock Delay      (SCD):    3.041ns
+    Clock Pessimism Removal (CPR):    0.267ns
+  Clock Uncertainty:      0.111ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.210ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_1 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[1]
+                         net (fo=1, routed)           1.193     1.193    base_i/ps7_0/inst/FCLK_CLK_unbuffered[1]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  base_i/ps7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG/O
+                         net (fo=5887, routed)        1.747     3.041    base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+    SLICE_X25Y40         FDRE                                         r  base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X25Y40         FDRE (Prop_fdre_C_Q)         0.419     3.460 f  base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=2, routed)           0.775     4.235    base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+    SLICE_X25Y40         LUT3 (Prop_lut3_I1_O)        0.299     4.534 f  base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=33, routed)          1.488     6.022    base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+    SLICE_X24Y38         FDCE                                         f  base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_1 rise edge)
+                                                      7.000     7.000 r  
+    PS7_X0Y0             PS7                          0.000     7.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[1]
+                         net (fo=1, routed)           1.088     8.088    base_i/ps7_0/inst/FCLK_CLK_unbuffered[1]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     8.179 r  base_i/ps7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG/O
+                         net (fo=5887, routed)        1.569     9.748    base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+    SLICE_X24Y38         FDCE                                         r  base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.267    10.015    
+                         clock uncertainty           -0.111     9.904    
+    SLICE_X24Y38         FDCE (Recov_fdce_C_CLR)     -0.405     9.499    base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv__parameterized0/axi_data_fifo_v2_1_36_axic_fifo__parameterized0/axi_data_fifo_v2_1_36_fifo_gen__parameterized0/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          9.499    
+                         arrival time                          -6.022    
+  -------------------------------------------------------------------
+                         slack                                  3.478    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.563ns  (arrival time - required time)
+  Source:                 base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv/axi_data_fifo_v2_1_36_axic_fifo/axi_data_fifo_v2_1_36_fifo_gen_57/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDPE clocked by clk_fpga_1  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Destination:            base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv/axi_data_fifo_v2_1_36_axic_fifo/axi_data_fifo_v2_1_36_fifo_gen_57/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+                            (removal check against rising-edge clock clk_fpga_1  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Path Group:             **async_default**
+  Path Type:              Removal (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_1 rise@0.000ns - clk_fpga_1 rise@0.000ns)
+  Data Path Delay:        0.487ns  (logic 0.246ns (50.553%)  route 0.241ns (49.447%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.224ns
+    Source Clock Delay      (SCD):    0.926ns
+    Clock Pessimism Removal (CPR):    0.282ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_1 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[1]
+                         net (fo=1, routed)           0.310     0.310    base_i/ps7_0/inst/FCLK_CLK_unbuffered[1]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  base_i/ps7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG/O
+                         net (fo=5887, routed)        0.590     0.926    base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv/axi_data_fifo_v2_1_36_axic_fifo/axi_data_fifo_v2_1_36_fifo_gen_57/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+    SLICE_X26Y42         FDPE                                         r  base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv/axi_data_fifo_v2_1_36_axic_fifo/axi_data_fifo_v2_1_36_fifo_gen_57/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X26Y42         FDPE (Prop_fdpe_C_Q)         0.148     1.074 f  base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv/axi_data_fifo_v2_1_36_axic_fifo/axi_data_fifo_v2_1_36_fifo_gen_57/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=3, routed)           0.109     1.183    base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv/axi_data_fifo_v2_1_36_axic_fifo/axi_data_fifo_v2_1_36_fifo_gen_57/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+    SLICE_X25Y42         LUT3 (Prop_lut3_I2_O)        0.098     1.281 f  base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv/axi_data_fifo_v2_1_36_axic_fifo/axi_data_fifo_v2_1_36_fifo_gen_57/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=32, routed)          0.131     1.412    base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv/axi_data_fifo_v2_1_36_axic_fifo/axi_data_fifo_v2_1_36_fifo_gen_57/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+    SLICE_X25Y42         FDCE                                         f  base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv/axi_data_fifo_v2_1_36_axic_fifo/axi_data_fifo_v2_1_36_fifo_gen_57/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_1 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  base_i/ps7_0/inst/PS7_i/FCLKCLK[1]
+                         net (fo=1, routed)           0.337     0.337    base_i/ps7_0/inst/FCLK_CLK_unbuffered[1]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  base_i/ps7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG/O
+                         net (fo=5887, routed)        0.858     1.224    base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv/axi_data_fifo_v2_1_36_axic_fifo/axi_data_fifo_v2_1_36_fifo_gen_57/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+    SLICE_X25Y42         FDCE                                         r  base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv/axi_data_fifo_v2_1_36_axic_fifo/axi_data_fifo_v2_1_36_fifo_gen_57/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism             -0.282     0.942    
+    SLICE_X25Y42         FDCE (Remov_fdce_C_CLR)     -0.092     0.850    base_wrapper/base/video_imp_1KRFORE/base_axi_mem_intercon_0/m00_couplers_imp_1UNZW92/base_axi_mem_intercon_imp_auto_pc_0/axi_protocol_converter_v2_1_37_axi_protocol_converter__parameterized0/axi_protocol_converter_v2_1_37_axi3_conv/axi_protocol_converter_v2_1_37_a_axi3_conv/axi_data_fifo_v2_1_36_axic_fifo/axi_data_fifo_v2_1_36_fifo_gen_57/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                         -0.849    
+                         arrival time                           1.412    
+  -------------------------------------------------------------------
+                         slack                                  0.563    
+
+
+
+
+

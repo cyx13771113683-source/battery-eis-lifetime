@@ -1,0 +1,6 @@
+ABI=BE03
+setup_ns=0.227
+hold_ns=0.018
+initial_setup_ns=0.227
+board_validated=false
+part=xc7z020clg400-1
