@@ -1,5 +1,6 @@
 """Three-page battery prototype launcher, one-shot test and computer maintenance."""
 import argparse
+import atexit
 import hashlib
 import json
 from pathlib import Path
@@ -11,6 +12,27 @@ if HERE.name=='scripts':HERE=HERE.parent
 sys.path.insert(0,str(HERE/'ps'))
 from configuration import HardwareProfile,Settings
 from prototype import PrototypeCalibration,PrototypeModel,PrototypeJob,FastHardware
+
+
+class RunLog:
+    """Mirror the current process output without removing system journal evidence."""
+    def __init__(self,stream,log):self.stream=stream;self.log=log
+    def write(self,text):
+        result=self.stream.write(text);self.log.write(text);return result
+    def flush(self):self.stream.flush();self.log.flush()
+    def __getattr__(self,name):return getattr(self.stream,name)
+
+
+def start_current_log(root):
+    path=Path(root)/'runtime.current.log'
+    log=path.open('w',encoding='utf-8',buffering=1)
+    stdout,stderr=sys.stdout,sys.stderr
+    sys.stdout=RunLog(stdout,log);sys.stderr=RunLog(stderr,log)
+    def close_log():
+        sys.stdout=stdout;sys.stderr=stderr;log.close()
+    atexit.register(close_log)
+    print('RUN_START current process only',flush=True)
+    return path
 
 
 def verify_runtime_binding(root,profile):
@@ -37,6 +59,7 @@ def main():
     parser.add_argument('--reuse-overlay',action='store_true')
     parser.add_argument('--verify-only',action='store_true')
     args=parser.parse_args();root=args.root.resolve()
+    if not args.verify_only:start_current_log(root)
     manifest_path=HERE/'manifest.json'
     if manifest_path.exists():
         manifest=json.loads(manifest_path.read_text())

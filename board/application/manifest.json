@@ -1,0 +1,29 @@
+{
+  "version": "battery_ui_run_records_20261030_v6",
+  "files": {
+    "prototype_calibration_admin.py": "bd7fe68c6434f0dbb5369e9371ba3045970bf340a2233f5f8fe710aba7b83dbe",
+    "prototype_start.py": "d37d7aaff2a1192071be9e96bc56066ee459c56b83c80bfbb61cd40e6baa690e",
+    "assets/glyphs.npz": "c4ded7e63cad0f221fbb3d51c307035b3dd8913707c715f118fe1648e61a09b0",
+    "assets/offline_runtime_baseline_be03_b.json": "87a21c7d73d8b9c74ce7cd51d85fcfb0d8ce91434266a9db4e9e7cb8391ded89",
+    "models/lib_two_ridge.json": "0970354e2c6609bacde8d6da1906e3d15ad8b8fdd1a2cb8b85d9601215e668df",
+    "ps/analysis.py": "950d1889400895e9b5bb35b707246cff257d3ead740902a42b2c2c82bb07b604",
+    "ps/app.py": "f539c6fa98831cac193fdfbfc29ba3dacf308404ea83f687b7d97cf659fd0c48",
+    "ps/calibration.py": "2cd0f78d63b46ad338e4c9298c4d7d9e39a8d99e7893007425d170b94817041d",
+    "ps/calibration_plan.py": "5d524966258e931ee2624091f73ef2e1e066bca7abcd93b9033f94cdf18eda4b",
+    "ps/configuration.py": "99227a5113b537ff82c201389200a61c88bbd66bdbeb91f2278742afb8c994c4",
+    "ps/current_zero.py": "c9f7e80a01de906fcd076e2e447be8739aebe2901966c610b5b46537d52ba8da",
+    "ps/dataset_export.py": "4698ec75937c408b0debff8f80b5566edc155b218d9a7ed5662364d8f63a30a4",
+    "ps/hardware.py": "0f4c3c75c7b6f506b7651611b4aa148f978f910ec8e68a8e56c4178f1b07b320",
+    "ps/linux_touch.py": "b2cde07f8f38c3f45b67648de404143dd4b43a26fbf2af34f14a83ae79fd17cd",
+    "ps/live_control.py": "4d5c64b2d7addec50e9ac5bd601795322c9fef8197f0335a7522d309b6c779d6",
+    "ps/model_bridge.py": "dbbab880e1fadb87bfcb08ff906b87002b0fb653a35699b9c9282bb3807adfea",
+    "ps/panel.py": "b044f45a3bc6e2da3d913994a8d2c3fe96508dc9880cfb4390022075e1021657",
+    "ps/prototype.py": "e1bba91a68ce159fc333cb16036d0208bb67d9f28af1106efbad90949cd5842a",
+    "ps/research_inference.py": "cfc644ea2ef8c6254e7adc9616340d2ae6c2df0a71a25d3aeda81b1c84064824",
+    "ps/session.py": "7f5e45b08d2c53b8e2e9a1e2f720b0a8770b94c1d96d6343e926f336dca20990",
+    "ps/session_audit.py": "e8faa15b8dd608fbd296ccd9375a21447941f4a031d03996e3a3a7d254b444c1",
+    "ps/synthetic.py": "113d6eaa915f1ba10b3727be457f0f0f49690d4ba56521c03e75f701d46a8f7b",
+    "ps/ui_records.py": "b736296a9aeea7041ac2fcb11f0a71c82bef6b7098e664589e40bccabb672197",
+    "rtl/sine14.mem": "156fcf3035018488943e3e0994bcfaf8a8d58ce2317228de09e88ff55e8d5a19"
+  }
+}

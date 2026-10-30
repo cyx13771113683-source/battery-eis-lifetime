@@ -98,11 +98,14 @@ def spectrum_points(results):
 
 class RecordIndex:
     """Index names first; decode JSON only for requested rows, with mtime cache."""
-    def __init__(self, root, page_size=4, soh_only=False):
+    def __init__(self, root, page_size=4, soh_only=False, current_run_only=False):
         self.root = Path(root)
         self.page_size = page_size
         if type(page_size) is not int or page_size < 1: raise ValueError('positive page size required')
         self.entries = []; self.cache = OrderedDict();self.soh_only=soh_only;self._eligibility={}
+        # Snapshot directories, not timestamps: the board has no reliable RTC.
+        # Even unfinished sessions from the previous run must remain hidden.
+        self._before_start={p.name for p in self.root.iterdir() if p.is_dir()} if current_run_only and self.root.is_dir() else set()
         self.refresh()
 
     def refresh(self):
@@ -112,6 +115,7 @@ class RecordIndex:
                 for folder in folders:
                     if folder.is_dir(follow_symlinks=False):
                         path = Path(folder.path)
+                        if path.name in self._before_start:continue
                         if (path / 'session.json').is_file() and (path / 'summary.json').is_file():
                             if not self.soh_only or self._has_soh(path):entries.append(path)
         self.entries = sorted(entries, key=lambda p: p.name, reverse=True)
@@ -177,8 +181,8 @@ class RecordIndex:
 
 
 class RecordBrowser:
-    def __init__(self, root):
-        self.index = RecordIndex(root,soh_only=True)
+    def __init__(self, root, current_run_only=False):
+        self.index = RecordIndex(root,soh_only=True,current_run_only=current_run_only)
         self.page = 0; self.selected = None; self.chart_record = None
         self._view = None
 

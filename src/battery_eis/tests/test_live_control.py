@@ -65,6 +65,19 @@ class LiveTests(unittest.TestCase):
         c=self.control;c.request_lifetime();c.tick();self.jobs[0].complete();c.tick()
         self.assertIsNone(c.job);self.assertFalse(c.single_running);self.assertEqual(len(self.jobs),1)
 
+    def test_80hz_resumes_and_voltage_current_stay_visible_between_jobs(self):
+        c=self.control;c.select(80.);c.toggle_single();c.tick()
+        result=dict(voltage_dc_v=3.44,current_dc_a=.2,frequency_hz=80.)
+        c.job.state['result']=result;c.job.complete();c.tick()
+        self.assertEqual(c.snapshot()['result'],result)
+        self.assertEqual(c.job.frequencies,(80.,));self.assertIsNone(c.snapshot()['ai']['soh'])
+        c.request_lifetime();c.job.complete('CANCELLED');c.tick()
+        self.assertEqual(c.job.frequencies,FREQUENCIES)
+        c.select(17.8);self.assertEqual(c.selected,80.)
+        c.job.complete();c.tick()
+        self.assertEqual(c.job.frequencies,(80.,));self.assertTrue(c.single_running)
+        self.assertEqual(c.snapshot()['ai']['soh'],.763)
+
     def test_change_frequency_waits_then_restarts_and_stop_preserves_chart(self):
         c=self.control;c.toggle_single();c.tick();self.jobs[0].complete();c.tick()
         c.select(80.);c.tick();self.assertTrue(self.jobs[1].cancelled)

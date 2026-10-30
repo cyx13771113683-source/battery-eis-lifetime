@@ -1,17 +1,31 @@
 {
-  "files": 203,
-  "bytes": 12046551,
+  "client_date": "2026-10-30",
+  "files": 247,
   "naming_errors": [],
-  "excluded_applications": [
-    "rlc_reference",
-    "rlc_classifier",
-    "generic_lockin_ui"
+  "standard_name_exceptions": [
+    "README.md",
+    "LICENSE"
   ],
-  "hardware_data": "2026-10-28 normal fixture",
-  "board_verification": "passed, project owner confirmation 2026-10-29",
-  "host_tests": {
-    "count": 131,
-    "status": "passed",
-    "log": "sim/host_tests_final.log"
-  }
+  "directory_structure": [
+    "src",
+    "sim",
+    "build",
+    "board",
+    "data",
+    "skill",
+    "report"
+  ],
+  "version": "battery_ui_run_records_20261030_v6",
+  "program_tests": 149,
+  "ui_replay_tests": 7,
+  "excluded": [
+    ".git",
+    "outputs",
+    "python caches",
+    "private current calibration",
+    "credentials",
+    "unrelated RLC application"
+  ],
+  "runtime_dependency_closure_verified": true,
+  "board_software_reboot_verified": true
 }

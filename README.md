@@ -4,9 +4,9 @@
 
 系统通过专用负载板和 ADS1256/DAC8552 前端采集锂电池电压、电流，由 PL 完成时间戳与锁相矩累积，PS 计算复阻抗并调用电池健康度模型。操作界面为首页、设置、记录三页。
 
-设置页提供连续单点测量和频点选择；首页“寿命测量”自动采集80、17.8、2.16Hz，完成后恢复测量前的单点运行状态。首页幅值、相位曲线各保留三个频点的最新数据，显示缓存不参与SOH计算。记录页只显示有SOH数值的结果，原始测量文件仍保留。详情页显示SOH、两张曲线和返回按钮。
+设置页提供连续单点测量和频点选择；首页“寿命测量”自动采集80、17.8、2.16Hz，完成后恢复测量前的单点运行状态。首页幅值、相位曲线各保留三个频点的最新数据，显示缓存不参与SOH计算。记录页只显示本次程序启动后有SOH数值的结果，重启列表清空，原始测量文件保留。详情页显示SOH、两张曲线和返回按钮。
 
-项目负责人于 2026-10-29 确认实际电池验证已通过。详见 [验证说明](report/validation.md)。冻结研究模型保留自身的数据域和有效性标记，原始发布 manifest 反映其生成时状态。
+最终软件版本为2026-10-30 v6，已在实板完成自动启动与记录清空的Linux重启验证。项目负责人于2026-10-29确认实际电池验证已通过。详见 [验证说明](report/validation.md)。冻结研究模型保留自身的数据域和有效性标记，原始发布 manifest 反映其生成时状态。
 
 ## 目录
 
@@ -15,7 +15,7 @@
 | `src/battery_eis/` | 电池应用、模型、RTL、配置、字库、测试和仿真平台 |
 | `sim/` | 仿真方法、历史原始仿真证据和本次软件验证 |
 | `build/` | 可移植构建入口、BD、必需 IP、约束及综合实现报告 |
-| `board/` | BE03 BIT/HWH/XSA 与运行说明 |
+| `board/` | BE03 BIT/HWH/XSA、实板v6运行文件、运行目录准备脚本与说明 |
 | `data/` | 公开模型回放样例和硬件配置模板 |
 | `skill/` | 从测量与推理流程提炼的通用经验 |
 | `report/` | 设计、验证、比赛核对及协作记录 |
@@ -27,6 +27,8 @@
 ```sh
 python -m pip install -r requirements.txt
 python -B -m unittest discover -s src/battery_eis/tests
+python -B sim/ui_functional_test.py
+python -B sim/verify_runtime_package.py
 python -B src/battery_eis/ps/app.py simulate --profile data/profile.example.json --output outputs/simulation
 python -B src/battery_eis/ps/app.py replay-model --model src/battery_eis/models/frozen_two_frequency_20261022/lib_two_ridge.json --input data/lib_two_ridge.example.json --output outputs/public_replay.json
 python -B src/battery_eis/ps/app.py preview --output outputs/preview

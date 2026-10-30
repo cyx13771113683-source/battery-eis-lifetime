@@ -66,6 +66,7 @@ class LiveController:
         self.factory=factory;self.model=model;self.frequencies=tuple(frequencies);self.selected=selected
         self.cache=RetainedSpectrum(root,self.frequencies);self.job=None;self.kind=None
         self.single_running=False;self.life_pending=False;self.resume_single=False
+        self.resume_frequency=None;self.last_result=None
         self.life_ai=model.reject('awaiting_measurement');self.last_life=None;self.revision=0
         self.state=dict(status='IDLE',result=None,source='hardware',ai=self.life_ai)
 
@@ -86,13 +87,13 @@ class LiveController:
 
     def request_lifetime(self):
         if self.life_pending:return
-        self.resume_single=self.single_running;self.life_pending=True
+        self.resume_single=self.single_running;self.resume_frequency=self.selected;self.life_pending=True
         self.life_ai=self.model.reject('awaiting_measurement')
         self.last_life=None
         if self.job and self.kind=='single':self.job.cancel()
 
     def cancel(self):
-        self.single_running=False;self.resume_single=False;self.life_pending=False
+        self.single_running=False;self.resume_single=False;self.resume_frequency=None;self.life_pending=False
         if self.job:self.job.cancel()
 
     def _launch(self,kind):
@@ -108,6 +109,7 @@ class LiveController:
         terminal=None;completed_kind=None
         if self.job:
             self.state=self.job.snapshot()
+            if self.state.get('result') is not None:self.last_result=deepcopy(self.state['result'])
             self.cache.ingest(self.job.results,self.state.get('output',''))
             if self.state['status'] in TERMINAL and not self.alive(self.job):
                 terminal=self.state['status'];completed_kind=self.kind
@@ -117,8 +119,9 @@ class LiveController:
                     if terminal=='DONE':
                         self.life_ai=self.state.get('ai',self.model.reject('session_incomplete'))
                         self.single_running=self.resume_single
+                        if self.resume_single:self.selected=self.resume_frequency
                     else:self.single_running=False;self.life_ai=self.model.reject('session_incomplete')
-                    self.resume_single=False
+                    self.resume_single=False;self.resume_frequency=None
                 elif terminal in ('ERROR','TIMEOUT','UNVERIFIED'):
                     self.single_running=False
                     if not self.life_pending:self.life_ai=self.model.reject('session_incomplete')
@@ -131,6 +134,7 @@ class LiveController:
 
     def snapshot(self):
         state=dict(self.state)
+        if state.get('result') is None:state['result']=deepcopy(self.last_result)
         if not self.life_pending:state['ai']=self.life_ai
         state.update(spectrum=self.cache.rows(),single_running=self.single_running,
                      lifetime_running=self.life_pending,single_paused=self.life_pending and self.resume_single,

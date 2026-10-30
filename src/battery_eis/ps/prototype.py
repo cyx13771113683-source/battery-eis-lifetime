@@ -259,7 +259,10 @@ class PrototypeJob:
             for s in self.plan:
                 spread=repeatability([r for r in self.results if r['binding']==self.profile.binding(s)])
                 if spread['relative_std'] is None or spread['relative_std']>.05:raise RuntimeError('repeatability')
-            self.check();ai=self.model.evaluate(self.results,self.recorder.metadata['context']);self.check()
+            self.check()
+            ai=(self.model.reject('single_point_only') if len(self.plan)==1 else
+                self.model.evaluate(self.results,self.recorder.metadata['context']))
+            self.check()
             terminal='DONE'
         except InterruptedError as exc:terminal='CANCELLED';error=str(exc)
         except TimeoutError as exc:terminal='TIMEOUT';error=str(exc)

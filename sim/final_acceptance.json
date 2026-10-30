@@ -1,0 +1,29 @@
+{
+  "client_date": "2026-10-30",
+  "application_version": "battery_ui_run_records_20261030_v6",
+  "program_tests": {
+    "count": 149,
+    "seconds": 12.869,
+    "exit_code": 0,
+    "evidence": "host_tests_final.log"
+  },
+  "ui_replay_tests": {
+    "count": 7,
+    "seconds": 0.566,
+    "exit_code": 0,
+    "evidence": "ui_tests_final.log"
+  },
+  "runtime_dependency_check": {
+    "exit_code": 0,
+    "application_files": 24,
+    "base_source_closure_files": 72,
+    "existing_directory_rejected": true,
+    "hardware_access": false
+  },
+  "deployed_source_identical": true,
+  "board_reboot_evidence": "../data/boot_20261030/after.json",
+  "physical_power_cycle_tested": false,
+  "loaded_measurement_in_this_verification": false,
+  "fpga_rebuilt_in_this_verification": false,
+  "private_parameters_replaced": false
+}

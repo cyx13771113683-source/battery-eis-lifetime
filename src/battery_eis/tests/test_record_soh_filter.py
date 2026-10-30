@@ -50,4 +50,30 @@ class SohHistoryTests(unittest.TestCase):
             self.assertEqual(browser.view()['count'],0);self.assertEqual(browser.view()['rows'],[])
             browser.open(0);self.assertIsNone(browser.selected)
 
+    def test_current_run_resets_list_without_deleting_any_history(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            def create(name,soh=.763,complete=True):
+                folder=root/name;folder.mkdir()
+                (folder/'session.json').write_text('{}')
+                (folder/'raw.csv').write_text('original samples')
+                if complete:finish(folder,soh)
+                return folder
+            def finish(folder,soh):
+                ai=dict(status='prototype_result' if soh is not None else 'no_result',soh=soh)
+                (folder/'summary.json').write_text(json.dumps(dict(status='DONE',ai=ai,results=[])))
+            old=create('20990101-old');unfinished=create('20990102-unfinished',complete=False)
+            original={p:p.read_bytes() for p in root.rglob('*') if p.is_file()}
+            browser=RecordBrowser(root,current_run_only=True)
+            self.assertEqual(browser.view()['count'],0)
+            # New run's wall clock may be earlier than the previous run.
+            fresh=create('20250505-new');create('20250505-single',soh=None)
+            finish(unfinished,.8);browser.refresh()
+            self.assertEqual(browser.view()['count'],1)
+            self.assertEqual(browser.view()['rows'][0]['id'],fresh.name)
+            browser.open(0);self.assertEqual(browser.selected['id'],fresh.name);browser.back()
+            self.assertEqual(RecordBrowser(root,current_run_only=True).view()['count'],0)
+            self.assertEqual(len(RecordIndex(root).entries),4)
+            for p,contents in original.items():self.assertEqual(p.read_bytes(),contents)
+
 if __name__=='__main__':unittest.main(verbosity=2)

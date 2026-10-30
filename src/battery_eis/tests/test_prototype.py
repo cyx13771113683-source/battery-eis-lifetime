@@ -96,6 +96,18 @@ class PrototypeTests(unittest.TestCase):
             self.assertEqual(job.snapshot()['status'],'CANCELLED')
             self.assertIsNone(job.snapshot()['ai']['soh'])
 
+    def test_single_point_never_invokes_soh_model(self):
+        with tempfile.TemporaryDirectory() as directory:
+            health=model()
+            with patch.object(health,'evaluate',side_effect=AssertionError('single point invoked SOH')) as evaluate:
+                job=ReplayJob(TestHardware(),pending_profile(),Settings(),[80.],directory,
+                    calibration(),source='simulation',model=health)
+                job.run()
+            self.assertEqual(job.snapshot()['status'],'DONE',job.snapshot())
+            self.assertEqual(len(job.results),2);evaluate.assert_not_called()
+            self.assertEqual(job.snapshot()['ai']['reason'],'single_point_only')
+            self.assertIsNone(job.snapshot()['ai']['soh'])
+
     def test_model_rejects_incomplete_spectrum(self):
         self.assertIsNone(model().evaluate([])['soh'])
 

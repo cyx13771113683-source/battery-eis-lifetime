@@ -68,7 +68,7 @@ class PrototypePanelFlowTests(unittest.TestCase):
                 elif stage[0]==2 and state=='CANCELLED' and done and frames[-1]['status']=='CANCELLED':point=(700,490);stage[0]=3
                 elif stage[0]==3 and state=='DONE' and done and frames[-1]['status']=='DONE':point=(660,565);stage[0]=4
                 elif stage[0]==4:
-                    rows=RecordIndex(directory).page(0)
+                    rows=RecordIndex(directory,soh_only=True).page(0)
                     index=next(i for i,r in enumerate(rows) if r['status']=='DONE')
                     point=(100,170+72*index);stage[0]=5
                 elif stage[0]==5:point=(80,42);stage[0]=6

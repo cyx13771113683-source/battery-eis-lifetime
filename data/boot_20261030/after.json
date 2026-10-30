@@ -1,0 +1,25 @@
+{
+  "client_date": "2026-10-30",
+  "before_boot_id": "de3b4b17-0be0-4e58-b70c-850baba4b01d",
+  "after_boot_id": "e704c217-5ecc-4ae4-aedc-48eaf097f1d4",
+  "service": {
+    "ActiveState": "active",
+    "UnitFileState": "enabled",
+    "ExecStart": "{ path=/usr/local/share/pynq-venv/bin/python3 ; argv[]=/usr/local/share/pynq-venv/bin/python3 -B -u /home/xilinx/battery_eis_deploy_20261026/battery_ui_run_records_20261030_v6/prototype_start.py --root /home/xilinx/battery_eis_deploy_20261026 ; ignore_errors=no ; start_time=[Mon 2025-05-05 19:34:44 UTC] ; stop_time=[n/a] ; pid=824 ; code=(null) ; status=0/0 }",
+    "InvocationID": "8afa6b2cddf04829abc5b75173ea551e"
+  },
+  "status_register": "0xbe030011",
+  "automatic_start_confirmed": true,
+  "first_frame_confirmed": true,
+  "record_list_empty": true,
+  "current_log_reset": true,
+  "original_files_preserved": 905,
+  "calibration_preserved": true,
+  "hashes": {
+    "prototype_calibration.json": "4dd5f68af0b5733bfc574c1449e0a8d0a33835ca6568469102f88f01748f69ba",
+    "profile.pending.json": "94748514dca7ff0a71567c78620ec533777a52e7867361beb776d19c3a0a4bd5"
+  },
+  "software_reboot_tested": true,
+  "power_cycle_tested": false,
+  "measurement_started": false
+}

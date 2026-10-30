@@ -1,0 +1,6 @@
+Client date: 2026-10-30
+Source: independent read-only verifier command output
+Command: python -B sim/ui_functional_test.py
+Exit code: 0
+Ran 7 tests in 0.566s
+OK

@@ -71,9 +71,10 @@ def panel_loop(hardware,overlay,args,profile,settings,calibration,metadata,model
     hdmi.configure(VideoMode(800,600,24,60));hdmi.start()
     touch=None;job=None;page=0;selected=args.sweep[0];sweep=len(args.sweep)>1;position=args.position
     alive=True;next_scan=0
-    browser=RecordBrowser(args.output);history_seen=None
+    browser=RecordBrowser(args.output,current_run_only=bool(getattr(args,'live_controls',False)));history_seen=None
     first_frame=True;ui_started=None;reported_output=None
     live=bool(getattr(args,'live_controls',False));controller=None;last_view=None;revision=-1
+    if live:print('UI_RECORDS_RUN_START count=%d'%len(browser.index.entries),flush=True)
     if live:
         from live_control import LiveController
         def create_job(frequencies):
