@@ -9,7 +9,7 @@ WorkingDirectory=/home/xilinx/battery_eis_runtime
 Environment=XILINX_XRT=/usr
 Environment=OPENBLAS_NUM_THREADS=1
 Environment=OMP_NUM_THREADS=1
-ExecStart=/usr/local/share/pynq-venv/bin/python3 -B -u /home/xilinx/battery_eis_runtime/battery_ui_run_records_20261030_v6/prototype_start.py --root /home/xilinx/battery_eis_runtime
+ExecStart=/usr/local/share/pynq-venv/bin/python3 -B -u /home/xilinx/battery_eis_runtime/battery_ui_voltage2v_20261031_v10/prototype_start.py --root /home/xilinx/battery_eis_runtime
 Restart=on-failure
 RestartSec=5
 TimeoutStopSec=15

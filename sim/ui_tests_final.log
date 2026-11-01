@@ -1,6 +1,5 @@
-Client date: 2026-10-30
-Source: independent read-only verifier command output
-Command: python -B sim/ui_functional_test.py
-Exit code: 0
-Ran 7 tests in 0.566s
+Command: python -X utf8 -B sim/ui_functional_test.py
+Observed 2026-11-01 after v10 synchronization
+Ran 7 tests in 0.704s
 OK
+Exit code: 0

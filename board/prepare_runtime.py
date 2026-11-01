@@ -1,4 +1,4 @@
-"""Prepare a NEW portable v6 runtime directory; no FPGA, services or networking."""
+"""Prepare a NEW portable v10 runtime directory; no FPGA, services or networking."""
 import argparse
 import hashlib
 import json
@@ -10,7 +10,7 @@ import sys
 import zipfile
 
 HERE=Path(__file__).resolve().parent
-VERSION='battery_ui_run_records_20261030_v6'
+VERSION='battery_ui_voltage2v_20261031_v10'
 
 
 def sha(path):

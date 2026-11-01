@@ -1,0 +1,200 @@
+{
+  "batch_id": "batch_same_model_20_20261030",
+  "battery_id": "B20",
+  "attempt": 1,
+  "session_path": "/home/xilinx/battery_eis_deploy_20261026/data/20250505T224038Z-b3e041b7",
+  "local_session_path": "data/batch_20/raw/b20/attempt_01/session.zip",
+  "source": "hardware",
+  "started_at": "2026-11-01T08:48:14.807148+00:00",
+  "finished_at": "2026-11-01T08:49:37.345664+00:00",
+  "client_date": "2026-11-01",
+  "board_started_at": "2025-05-05T22:40:38.035720+00:00",
+  "board_finished_at": "2025-05-05T22:40:56.148157+00:00",
+  "pre_voltage_v": 3.788647904694124,
+  "pre_voltage_source": "000_result.json zero-drive preflight",
+  "status": "DONE",
+  "quality_reasons": [],
+  "rejection_reason": null,
+  "frequency_repeats": [
+    {
+      "requested_frequency_hz": 80.0,
+      "actual_frequency_hz": 80.0006091594696,
+      "repeat": 0,
+      "Re_ohm": 0.010076957481264177,
+      "Im_ohm": -0.0011165862300603934,
+      "magnitude_ohm": 0.010138630917849143,
+      "phase_deg": -6.322916484872074,
+      "quality_ok": true,
+      "reasons": [
+        "uncalibrated"
+      ],
+      "raw_file": "001_raw.csv",
+      "capture_metadata": "001_capture.json"
+    },
+    {
+      "requested_frequency_hz": 80.0,
+      "actual_frequency_hz": 80.0006091594696,
+      "repeat": 1,
+      "Re_ohm": 0.010088514716185404,
+      "Im_ohm": -0.0011171292487495536,
+      "magnitude_ohm": 0.01015017768007542,
+      "phase_deg": -6.318778254073691,
+      "quality_ok": true,
+      "reasons": [
+        "uncalibrated"
+      ],
+      "raw_file": "002_raw.csv",
+      "capture_metadata": "002_capture.json"
+    },
+    {
+      "requested_frequency_hz": 17.8,
+      "actual_frequency_hz": 17.811544239521027,
+      "repeat": 0,
+      "Re_ohm": 0.011300055386860717,
+      "Im_ohm": -0.001472576109459548,
+      "magnitude_ohm": 0.011395601438461725,
+      "phase_deg": -7.42470646336355,
+      "quality_ok": true,
+      "reasons": [
+        "uncalibrated"
+      ],
+      "raw_file": "003_raw.csv",
+      "capture_metadata": "003_capture.json"
+    },
+    {
+      "requested_frequency_hz": 17.8,
+      "actual_frequency_hz": 17.811544239521027,
+      "repeat": 1,
+      "Re_ohm": 0.011287348268047863,
+      "Im_ohm": -0.0014847983082381033,
+      "magnitude_ohm": 0.011384588571413102,
+      "phase_deg": -7.493966051662621,
+      "quality_ok": true,
+      "reasons": [
+        "uncalibrated"
+      ],
+      "raw_file": "004_raw.csv",
+      "capture_metadata": "004_capture.json"
+    },
+    {
+      "requested_frequency_hz": 2.16,
+      "actual_frequency_hz": 2.1653249859809875,
+      "repeat": 0,
+      "Re_ohm": 0.013101859907328095,
+      "Im_ohm": -0.0009572766745280613,
+      "magnitude_ohm": 0.013136784677494217,
+      "phase_deg": -4.1788437306257205,
+      "quality_ok": true,
+      "reasons": [
+        "uncalibrated"
+      ],
+      "raw_file": "005_raw.csv",
+      "capture_metadata": "005_capture.json"
+    },
+    {
+      "requested_frequency_hz": 2.16,
+      "actual_frequency_hz": 2.1653249859809875,
+      "repeat": 1,
+      "Re_ohm": 0.013098980196574933,
+      "Im_ohm": -0.000963053631880591,
+      "magnitude_ohm": 0.01313433494654909,
+      "phase_deg": -4.204892899942604,
+      "quality_ok": true,
+      "reasons": [
+        "uncalibrated"
+      ],
+      "raw_file": "006_raw.csv",
+      "capture_metadata": "006_capture.json"
+    }
+  ],
+  "frequency_complex_means": [
+    {
+      "requested_frequency_hz": 80.0,
+      "actual_frequency_hz": 80.0006091594696,
+      "Re_ohm": 0.01008273609872479,
+      "Im_ohm": -0.0011168577394049736,
+      "magnitude_mohm": 10.14440429234742,
+      "phase_deg": -6.320846191898388
+    },
+    {
+      "requested_frequency_hz": 17.8,
+      "actual_frequency_hz": 17.811544239521027,
+      "Re_ohm": 0.011293701827454289,
+      "Im_ohm": -0.0014786872088488256,
+      "magnitude_mohm": 11.390092924513718,
+      "phase_deg": -7.459319516065136
+    },
+    {
+      "requested_frequency_hz": 2.16,
+      "actual_frequency_hz": 2.1653249859809875,
+      "Re_ohm": 0.013100420051951514,
+      "Im_ohm": -0.0009601651532043262,
+      "magnitude_mohm": 13.135559472630055,
+      "phase_deg": -4.1918671007668875
+    }
+  ],
+  "soh_percent": 94.07888630014895,
+  "runtime_identity": {
+    "version": "battery_ui_voltage2v_20261031_v10",
+    "manifest_sha256": "04de8ff22296966276f01d9dccfa8ea1ce292363c431f7d1249496eec5700b3f",
+    "bit_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+    "boot_id": "c5528710-9dc5-4f9f-89a4-1a4a74e6a3e2"
+  },
+  "model_identity": {
+    "file": "lib_two_ridge.json",
+    "sha256": "0970354e2c6609bacde8d6da1906e3d15ad8b8fdd1a2cb8b85d9601215e668df"
+  },
+  "profile_identity": {
+    "original_file_sha256": "94748514dca7ff0a71567c78620ec533777a52e7867361beb776d19c3a0a4bd5",
+    "effective_profile": {
+      "hardware_id": "Battery_EIS_REV_A",
+      "board_serial": "pynq-ssh-192.168.2.99-serial-unread",
+      "module_serial": "existing-ADDA-physical-serial-unread",
+      "wiring_verified": true,
+      "module_verified": true,
+      "adc_clock_verified": false,
+      "polarity_verified": false,
+      "limits_confirmed": false,
+      "chemistry": "unknown",
+      "cell_id": "B20",
+      "minimum_voltage_v": 2.0,
+      "maximum_voltage_v": 4.0,
+      "maximum_current_a": 0.4,
+      "frontend_sha256": "db9117a973ce9a6e3053b5ef7571f11240776d77ca37fdf8b6a89f008ff9a047",
+      "overlay_sha256": "9f2007f1d0111b8a2fd24b974e44912fe41c9d7639d80657b3a433bfa9546aba",
+      "assembly_sha256": "f53cbee8d08a3656c9d681e1cc31ad869669dd1c514bddc3d7e2ccd7fbe0adb3",
+      "adc_clock_hz": 7680000,
+      "adc_reference_v": 2.5,
+      "dac_reference_v": 5.0,
+      "r_shunt_ohm": 0.1,
+      "voltage_divider": 1.249,
+      "r_load_nominal_ohm": 10.0,
+      "voltage_dc_scale": 1.0,
+      "current_dc_scale": 1.0,
+      "dc_reference_source": "nominal only"
+    }
+  },
+  "calibration_identity": {
+    "id": "positive10m-20261028",
+    "sha256": "4dd5f68af0b5733bfc574c1449e0a8d0a33835ca6568469102f88f01748f69ba"
+  },
+  "conditions": {
+    "cell_model": "未知",
+    "temperature_c": "未知",
+    "soc": "未知",
+    "rest_conditions": "未知"
+  },
+  "measurement_elapsed_s": 18.141025296001317,
+  "click_to_result_frame_s": null,
+  "timing_evidence": "board_result.json state.elapsed_s; finite standalone batch run, no UI click",
+  "zero_output_after": true,
+  "zero_output_evidence": {
+    "status_register": "0xbe03fc15",
+    "zero_ack": true,
+    "busy": false,
+    "service": "inactive"
+  },
+  "operator_confirmation": "用户：20",
+  "archive_sha256": "5184fc76bf4eff7fa558633b5e25f4d42cf7db0447feae4bef4316f6db47552f",
+  "raw_file_count": 26
+}

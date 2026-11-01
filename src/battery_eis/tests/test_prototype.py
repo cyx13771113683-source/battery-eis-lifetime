@@ -74,7 +74,14 @@ class PrototypeTests(unittest.TestCase):
         row=dict(reasons=['absolute_zero_current_over_1mA'],counts=[305,305],voltage_v=3.44,
                  raw_abs_max_a=.004,noise_std_a=.00013,residual_peak_a=.0005,half_window_drift_a=0.)
         check_zero(row)
-        for name,value in [('voltage_v',4.2),('noise_std_a',.001),('counts',[0,0])]:
+        check_zero(dict(row,voltage_v=2.0))
+        check_zero(dict(row,voltage_v=4.0))
+        limits=safety_profile(pending_profile())
+        self.assertEqual(limits.minimum_voltage_v,2.0)
+        self.assertEqual(limits.maximum_voltage_v,4.0)
+        self.assertEqual(limits.maximum_current_a,.4)
+        self.assertEqual(limits.trip_codes()[0],round(2.0/(limits.code_volts*limits.voltage_divider*limits.voltage_dc_scale)))
+        for name,value in [('voltage_v',1.0),('voltage_v',1.999),('voltage_v',4.001),('noise_std_a',.001),('counts',[0,0])]:
             with self.subTest(name=name),self.assertRaises(ValueError):check_zero(dict(row,**{name:value}))
 
     def test_completed_prototype_session_is_separate_from_production(self):
@@ -110,6 +117,35 @@ class PrototypeTests(unittest.TestCase):
 
     def test_model_rejects_incomplete_spectrum(self):
         self.assertIsNone(model().evaluate([])['soh'])
+
+    def test_prototype_real_extensions_are_bounded(self):
+        health=model();original=deepcopy(health.model)
+        def rows(re17):
+            return [dict(source='hardware',frequency_hz=f,repeat=k,quality_ok=True,
+                         prototype_mode=True,impedance_ohm=z)
+                    for f,z in zip(health.model['frequencies_hz'],
+                                   ([.01868,-.01047],[re17,-.00226])) for k in (0,1)]
+        for value in (0.0,.001,.01358):
+            with self.subTest(re17=value):
+                result=health.evaluate(rows(value))
+                self.assertEqual(result['status'],'prototype_result')
+                self.assertNotIn('model_input_range_extended',result)
+                self.assertNotIn('range_extension',result)
+                self.assertFalse(result['valid_for_board'])
+        self.assertEqual(health.evaluate(rows(-.000001))['reason'],'feature_range')
+        both_zero=rows(0.0)
+        for row in both_zero:
+            row['impedance_ohm'][0]=0.0
+        self.assertEqual(health.evaluate(both_zero)['status'],'prototype_result')
+        both_zero[0]['impedance_ohm'][0]=-.000001
+        self.assertEqual(health.evaluate(both_zero)['reason'],'feature_range')
+        self.assertEqual(health.evaluate(rows(.06))['reason'],'feature_range')
+        result=health.evaluate(rows(.014))
+        self.assertEqual(result['status'],'prototype_result')
+        self.assertNotIn('model_input_range_extended',result)
+        changed=rows(.01358);changed[0]['impedance_ohm'][1]=.1
+        self.assertEqual(health.evaluate(changed)['reason'],'feature_range')
+        self.assertEqual(health.model,original)
 
     def test_ui_uses_result_label_without_invented_years(self):
         health=health_values(dict(status='prototype_result',soh=.763,capacity_Ah=None,rul=None,valid_for_board=False))

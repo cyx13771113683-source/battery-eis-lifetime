@@ -1,0 +1,16 @@
+{
+  "session_path": "/home/xilinx/battery_eis_deploy_20261026/data/20250505T215427Z-1685fb34",
+  "remote_archive": "/home/xilinx/battery_eis_deploy_20261026/batch_same_model_20_20261030/b07/attempt_01/export.zip",
+  "sha256": "a43e4309b01bacfd2bb76cdfb6b9a1e1c297967cafe8a3af4890d1f5ce03c332",
+  "bytes": 14147,
+  "files": {
+    "000_capture.json": "00906c33ccdb7bbd62506b13c7b50b0920f70652830a0f8a2790580b5c86e05c",
+    "000_raw.csv": "0b456f9faff8436bdce5458dcbec209db06a09cffc328ebba4581f599d2c773d",
+    "000_result.json": "faea0f295221e66962220c1ea11ae921a76ce088e0cee4bdaa8db65e36cbd384",
+    "adc_selfcal.json": "d260934b4b587954c5fb4d4d9770cbcc8e946000fbb396499d33c4e4ce1083a6",
+    "prototype_calibration_used.json": "f5e0ece39cb7c141c77c486b122a9dddc21ac35bf6ba28fbc4a051b67696fad6",
+    "session.json": "071ba150c0d11e9c19d54c89dcbf30825fddafb2cefdce934d96a1825e2d1886",
+    "summary.json": "1305f868067a4defc26ee0cefa6496e4dfc073b199b6169343dd9861c96dbdd8",
+    "summary.staged.json": "1305f868067a4defc26ee0cefa6496e4dfc073b199b6169343dd9861c96dbdd8"
+  }
+}

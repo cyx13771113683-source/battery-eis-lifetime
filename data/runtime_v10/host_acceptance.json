@@ -1,0 +1,19 @@
+{
+  "voltage_range_v": [
+    2.0,
+    4.0
+  ],
+  "maximum_current_a": 0.4,
+  "real_impedance_lower_ohm": {
+    "2.16": 0.0,
+    "17.8": 0.0
+  },
+  "program_tests": 150,
+  "program_test_seconds": 14.057,
+  "program_test_exit_code": 0,
+  "zero_preflight_2v_accepted": true,
+  "zero_preflight_below_2v_rejected": true,
+  "pl_trip_code_2v_checked": true,
+  "calibration_modified": false,
+  "additional_result_annotation": false
+}

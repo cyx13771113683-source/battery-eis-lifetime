@@ -1,0 +1,24 @@
+{
+  "version": "battery_ui_voltage2v_20261031_v10",
+  "service_active": true,
+  "enabled": "enabled",
+  "invocation_id": "1e44f03c694a4e84a0c242d3e1b5e5e8",
+  "first_frame": true,
+  "status_register": "0xbe030011",
+  "voltage_range_v": [
+    2.0,
+    4.0
+  ],
+  "maximum_current_a": 0.4,
+  "re17_minimum_ohm": 0.0,
+  "re2_minimum_ohm": 0.0,
+  "result_extension_annotation": false,
+  "calibration_and_profile_preserved": true,
+  "hashes": {
+    "prototype_calibration.json": "4dd5f68af0b5733bfc574c1449e0a8d0a33835ca6568469102f88f01748f69ba",
+    "profile.pending.json": "94748514dca7ff0a71567c78620ec533777a52e7867361beb776d19c3a0a4bd5"
+  },
+  "rollback": "/home/xilinx/battery_eis_deploy_20261026/rollback/limits-20261031-fea05a300f",
+  "trip_codes": "(2686503, 5373007, 67109)",
+  "measurement_started": false
+}

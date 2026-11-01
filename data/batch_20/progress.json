@@ -1,0 +1,154 @@
+{
+  "status": "COMPLETE",
+  "measurement_date": "2026-11-01",
+  "completed_cells": 20,
+  "total_attempts": 22,
+  "failed_attempts_preserved": 2,
+  "valid_frequency_captures": 120,
+  "source": "hardware",
+  "application_version": "battery_ui_voltage2v_20261031_v10",
+  "cells": [
+    {
+      "battery_id": "B01",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b01/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B02",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b02/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B03",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b03/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B04",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b04/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B05",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b05/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B06",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b06/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B07",
+      "selected_attempt": 2,
+      "attempt_ids": [
+        "b07/attempt_01",
+        "b07/attempt_02"
+      ]
+    },
+    {
+      "battery_id": "B08",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b08/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B09",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b09/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B10",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b10/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B11",
+      "selected_attempt": 2,
+      "attempt_ids": [
+        "b11/attempt_01",
+        "b11/attempt_02"
+      ]
+    },
+    {
+      "battery_id": "B12",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b12/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B13",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b13/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B14",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b14/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B15",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b15/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B16",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b16/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B17",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b17/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B18",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b18/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B19",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b19/attempt_01"
+      ]
+    },
+    {
+      "battery_id": "B20",
+      "selected_attempt": 1,
+      "attempt_ids": [
+        "b20/attempt_01"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "source": "project_owner_confirmation",
+  "date": "2026-11-01",
+  "sample_count": 20,
+  "reference_method": "专业设备完整充放电循环容量测试",
+  "reported_maximum_soh_error_percent": 5,
+  "error_definition": "用户报告5%，尚未区分相对误差与百分比点差",
+  "paired_reference_values_provided": false,
+  "conclusion": "对本批20颗电池使用专业充放电设备分别完成完整充放电循环，根据容量测试结果进行SOH对照。项目负责人确认，本系统与专业设备的SOH最大误差不超过5%，在本批样本和测试条件下达到实际健康状态初筛与分选的实用水平。"
+}

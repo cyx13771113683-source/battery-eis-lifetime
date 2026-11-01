@@ -1,6 +1,6 @@
 {
-  "client_date": "2026-10-30",
-  "files": 247,
+  "client_date": "2026-11-01",
+  "files": 323,
   "naming_errors": [],
   "standard_name_exceptions": [
     "README.md",
@@ -15,17 +15,19 @@
     "skill",
     "report"
   ],
-  "version": "battery_ui_run_records_20261030_v6",
-  "program_tests": 149,
+  "version": "battery_ui_voltage2v_20261031_v10",
+  "program_tests": 150,
   "ui_replay_tests": 7,
+  "completed_cells": 20,
+  "raw_attempts": 22,
+  "runtime_dependency_closure_verified": true,
+  "technical_report_source_sha256": "2a534beace4bb4c0a6c47c591665abcede7fb2a4da140866f4d2fcfd895e8364",
+  "technical_report_unmodified": true,
   "excluded": [
     ".git",
     "outputs",
     "python caches",
-    "private current calibration",
     "credentials",
-    "unrelated RLC application"
-  ],
-  "runtime_dependency_closure_verified": true,
-  "board_software_reboot_verified": true
+    "temporary files"
+  ]
 }

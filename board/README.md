@@ -1,10 +1,10 @@
 # 板端运行
 
-平台：TUL PYNQ-Z2 / xc7z020clg400-1，Waveshare ADS1256/DAC8552 AD/DA模块，BE03位流。板端需要PYNQ Python、NumPy、Pillow、HDMI与USB触摸环境。`application/`是已在实板自动启动的v6文件，内附逐文件哈希。
+平台：TUL PYNQ-Z2 / xc7z020clg400-1，Waveshare ADS1256/DAC8552 AD/DA模块，BE03位流。板端需要PYNQ Python、NumPy、Pillow、HDMI与USB触摸环境。`application/`是已在实板自动启动的v10文件，内附逐文件哈希。
 
 ## 准备与启动
 
-1. 按`src/battery_eis/docs/final_assembly_log_20261021.md`核对装配：R1=10Ω/5W、R2=0.1Ω、R5=2.49kΩ。J1是F+、S+、S−、F−；J2是AD0、AD1、AD2、AD3、DA0、AGND。AD3/F−不能另短接AGND。当前程序收窄到3.0—3.7V、0.4A，不按PCB的5V讨论上限直接放行。
+1. 按`src/battery_eis/docs/final_assembly_log_20261021.md`核对装配：R1=10Ω/5W、R2=0.1Ω、R5=2.49kΩ。J1是F+、S+、S−、F−；J2是AD0、AD1、AD2、AD3、DA0、AGND。AD3/F−不能另短接AGND。当前程序收窄到2.0—4.0V、0.4A，不按PCB的5V讨论上限直接放行。
 2. 从本机已有验证目录取得`profile.pending.json`与`prototype_calibration.json`，保留原文件。新机器需先独立完成接线、零激励和交流幅相校准；`data/fixtures/`是回放样例，不是新设备校准。
 3. 将仓库复制到板端。以下命令只创建一个不存在的新目录，并校验旧冻结基础文件、当前应用与校准绑定；不加载FPGA、不写systemd、不改网络。用实际路径替换两个输入参数：
 
@@ -20,7 +20,7 @@
 ```sh
 sudo env XILINX_XRT=/usr OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
   /usr/local/share/pynq-venv/bin/python3 -B -u \
-  /home/xilinx/battery_eis_runtime/battery_ui_run_records_20261030_v6/prototype_start.py \
+  /home/xilinx/battery_eis_runtime/battery_ui_voltage2v_20261031_v10/prototype_start.py \
   --root /home/xilinx/battery_eis_runtime
 ```
 
@@ -32,4 +32,4 @@ sudo env XILINX_XRT=/usr OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
 
 验收要检查当前InvocationID日志，包含`UI_RECORDS_RUN_START count=0`与`UI_FRAME_READY pages=3`；`runtime.current.log`只保留本次程序运行，系统journal保留。重启后记录列表空，原始测量保存在runtime根目录`data/`。回退时停用当前入口，恢复备份unit/drop-in与原启用状态，然后启动原版本；不覆盖校准和profile。
 
-本机v6已完成一次Linux重启自动启动验证，证据在`data/boot_20261030/`。冷断电验证未进行。源码包不包含设备凭据或当前私人校准；历史fixture仅供离线测试。
+历史v6已完成Linux重启自动启动验证，证据在`data/boot_20261030/`；v10部署、首帧和20颗实测证据见`data/runtime_v10/`及`data/batch_20/`。冷断电验证未进行。源码包不包含设备凭据；实测归档保留采集时使用的校准供复核，历史fixture仅供离线测试，不能直接替代新机器的校准。

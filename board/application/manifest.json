@@ -1,5 +1,5 @@
 {
-  "version": "battery_ui_run_records_20261030_v6",
+  "version": "battery_ui_voltage2v_20261031_v10",
   "files": {
     "prototype_calibration_admin.py": "bd7fe68c6434f0dbb5369e9371ba3045970bf340a2233f5f8fe710aba7b83dbe",
     "prototype_start.py": "d37d7aaff2a1192071be9e96bc56066ee459c56b83c80bfbb61cd40e6baa690e",
@@ -18,7 +18,7 @@
     "ps/live_control.py": "4d5c64b2d7addec50e9ac5bd601795322c9fef8197f0335a7522d309b6c779d6",
     "ps/model_bridge.py": "dbbab880e1fadb87bfcb08ff906b87002b0fb653a35699b9c9282bb3807adfea",
     "ps/panel.py": "b044f45a3bc6e2da3d913994a8d2c3fe96508dc9880cfb4390022075e1021657",
-    "ps/prototype.py": "e1bba91a68ce159fc333cb16036d0208bb67d9f28af1106efbad90949cd5842a",
+    "ps/prototype.py": "566df371e89619b6bb7481ee2b48ad318b764aa62891cf1ba7d08c5171e8ffd7",
     "ps/research_inference.py": "cfc644ea2ef8c6254e7adc9616340d2ae6c2df0a71a25d3aeda81b1c84064824",
     "ps/session.py": "7f5e45b08d2c53b8e2e9a1e2f720b0a8770b94c1d96d6343e926f336dca20990",
     "ps/session_audit.py": "e8faa15b8dd608fbd296ccd9375a21447941f4a031d03996e3a3a7d254b444c1",

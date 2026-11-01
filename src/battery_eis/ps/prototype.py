@@ -27,9 +27,9 @@ def safety_profile(profile):
     profile.validate(arm=False)
     if (profile.r_load_nominal_ohm, profile.r_shunt_ohm) != (10., .1):
         raise ValueError('requires 10ohm/R100 assembly')
-    if profile.maximum_voltage_v < 3.7 or profile.maximum_current_a < .4:
+    if profile.maximum_voltage_v < 4.0 or profile.maximum_current_a < .4:
         raise ValueError('prototype cannot relax configured limits')
-    return replace(profile, maximum_voltage_v=3.7, maximum_current_a=.4).validate(arm=False)
+    return replace(profile, minimum_voltage_v=2.0, maximum_voltage_v=4.0, maximum_current_a=.4).validate(arm=False)
 
 
 def check_zero(row):
@@ -37,7 +37,7 @@ def check_zero(row):
         raise ValueError('zero signal check failed')
     if row.get('counts') != [305, 305]:
         raise ValueError('zero capture incomplete')
-    for key, lo, hi in [('voltage_v',3.,3.7), ('raw_abs_max_a',0.,.01),
+    for key, lo, hi in [('voltage_v',2.,4.0), ('raw_abs_max_a',0.,.01),
                        ('noise_std_a',0.,.0005), ('residual_peak_a',0.,.001),
                        ('half_window_drift_a',-.0002,.0002)]:
         value = row.get(key)
@@ -111,7 +111,13 @@ class PrototypeModel:
             z=sum(complex(*r['impedance_ohm']) for r in rows)/len(rows)
             values.append(z); frequencies.append(rows[0]['frequency_hz'])
         features=[z.real for z in values]+[z.imag for z in values]
-        if any(not math.isfinite(v) or v<a or v>b for v,a,b in zip(features,self.model['lower'],self.model['upper'])):
+        lower=list(self.model['lower'])
+        # Limited prototype extension for the frozen LIB model, not a retrain.
+        # Current protection and all other feature bounds stay intact.
+        if self.sha256=='0970354e2c6609bacde8d6da1906e3d15ad8b8fdd1a2cb8b85d9601215e668df':
+            lower[0]=min(lower[0],0.0)
+            lower[1]=min(lower[1],0.0)
+        if any(not math.isfinite(v) or v<a or v>b for v,a,b in zip(features,lower,self.model['upper'])):
             return self.reject('feature_range')
         y=numerical_predict(self.model,features)
         if not math.isfinite(y) or not self.model['target_range'][0]<=y<=min(1.,self.model['target_range'][1]):

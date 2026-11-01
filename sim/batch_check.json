@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "completed_cells": 20,
+  "attempts": 22,
+  "preserved_failures": 2,
+  "valid_frequency_captures": 120,
+  "mean_elapsed_s": 18.162337683500027,
+  "maximum_elapsed_s": 18.219706201000008,
+  "repeat_magnitude_difference_percent": {
+    "80.0": {
+      "mean": 0.09023127540574648,
+      "maximum": 0.21493287674759684
+    },
+    "17.8": {
+      "mean": 0.07257733495144805,
+      "maximum": 0.21508748410770448
+    },
+    "2.16": {
+      "mean": 0.05395573528937424,
+      "maximum": 0.16965839627515344
+    }
+  },
+  "capacity_comparison_source": "project_owner_confirmation_not_recomputed"
+}
