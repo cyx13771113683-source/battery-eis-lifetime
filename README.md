@@ -8,7 +8,7 @@
 
 当前应用为 **2026-10-31 v10**，与2026-11-01的20颗实测版本一致。完整三频作业平均18.16 s，20颗均完成；原始采集和两次首次失败记录见[data/batch_20](data/batch_20/README.md)。负责人确认20颗均经专业设备完整充放电容量对照，SOH最大误差不超过5%，详细来源和适用范围见[验证说明](report/validation.md)。
 
-完整报告：[Word版](report/technical_report.docx) ｜ [Markdown阅读版](report/technical_report.md)。原文件按负责人完成版本原样上传，正文未改动。
+完整报告：[Word版](report/technical_report.docx) ｜ [Markdown阅读版](report/technical_report.md)。提交副本已清除作者元数据，并移除带定位水印的样品照片；本地原稿保留。
 
 ## 目录
 

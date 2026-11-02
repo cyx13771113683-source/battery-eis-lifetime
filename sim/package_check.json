@@ -22,7 +22,7 @@
   "raw_attempts": 22,
   "runtime_dependency_closure_verified": true,
   "technical_report_source_sha256": "568a465fda6de4c86e341ccfe98e312f7bc55b475f1f71a0c29afafb011f6642",
-  "technical_report_unmodified": true,
+  "technical_report_unmodified": false,
   "excluded": [
     ".git",
     "outputs",
@@ -31,5 +31,9 @@
     "temporary files"
   ],
   "technical_report_markdown": "report/technical_report.md",
-  "technical_report_markdown_verified": true
+  "technical_report_markdown_verified": true,
+  "technical_report_submission_sha256": "70776cbf50016a63aba4332ff322a8b59a303d806fb4f7fcaee212ec151126b9",
+  "personal_metadata_removed": true,
+  "location_photo_excluded": true,
+  "posters_included": false
 }

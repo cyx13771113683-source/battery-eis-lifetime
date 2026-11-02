@@ -1,4 +1,4 @@
-完整技术文档见[Word版](technical_report.docx)及[Markdown版](technical_report.md)，按负责人完成版本原样收录。以下为源码导航与复现摘要。
+完整技术文档见[Word版](technical_report.docx)及[Markdown版](technical_report.md)，按负责人完成版本收录，提交副本已去除身份元数据与定位照片。以下为源码导航与复现摘要。
 
 # 锂电池 EIS 与寿命评估设计
 

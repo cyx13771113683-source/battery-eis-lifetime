@@ -2,8 +2,8 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanc
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
 | Date         : Thu Oct 22 19:59:19 2026
-| Host         : cyx running 64-bit major release  (build 9200)
-| Command      : report_methodology -file D:/cyx/nt/battery_eis_be03_20261022_1950/reports/methodology.rpt
+| Host         : build_host running 64-bit major release  (build 9200)
+| Command      : report_methodology -file D:/workspace/nt/battery_eis_be03_20261022_1950/reports/methodology.rpt
 | Design       : base_wrapper
 | Device       : xc7z020clg400-1
 | Speed File   : -1
@@ -209,49 +209,49 @@ Related violations: <none>
 XDCB-5#1 Warning
 Runtime inefficient way to find pin objects  
 The option '-through : [get_pins -filter {NAME =~ *SyncAsync*/oSyncStages_reg[0]/D} -hier]' of constraint 'set_false_path' uses inefficient query to find pin objects (see constraint position '12' in the Timing Constraint window in Vivado IDE). To reduce runtime, it is recommended to get the pins through the cell objects. Please refer to Using Constraints Guide (Constraints Efficiency). An example of optimal query is: get_pins -filter {REF_PIN_NAME=~yy*} -of_objects [get_cells -hierarchical xx*].
-Current XDC: D:/cyx/nt/battery_eis_be03_20261022_1950/generated/base/ip/base_rgb2dvi_0_0/src/rgb2dvi.xdc (Line: 5)
+Current XDC: D:/workspace/nt/battery_eis_be03_20261022_1950/generated/base/ip/base_rgb2dvi_0_0/src/rgb2dvi.xdc (Line: 5)
 Related violations: <none>
 
 XDCH-2#1 Warning
 Same min and max delay values on IO port  
 The same output delay of 0.000 ns has been defined on port 'ads_cs' relative to clock clk_fpga_3 for both max and min. Make sure this reflects the design intent.
 set_output_delay -clock [get_clocks clk_fpga_3] -min 0.000 [get_ports {ads_reset ads_pdwn ads_cs dac_cs spi_sclk spi_mosi}]
-D:/cyx/multi_channel_lockin_amplifier/personal/workspace/battery_eis/rtl/battery_io.xdc (Line: 19)
+D:/workspace/multi_channel_lockin_amplifier/personal/workspace/battery_eis/rtl/battery_io.xdc (Line: 19)
 Related violations: <none>
 
 XDCH-2#2 Warning
 Same min and max delay values on IO port  
 The same output delay of 0.000 ns has been defined on port 'ads_pdwn' relative to clock clk_fpga_3 for both max and min. Make sure this reflects the design intent.
 set_output_delay -clock [get_clocks clk_fpga_3] -min 0.000 [get_ports {ads_reset ads_pdwn ads_cs dac_cs spi_sclk spi_mosi}]
-D:/cyx/multi_channel_lockin_amplifier/personal/workspace/battery_eis/rtl/battery_io.xdc (Line: 19)
+D:/workspace/multi_channel_lockin_amplifier/personal/workspace/battery_eis/rtl/battery_io.xdc (Line: 19)
 Related violations: <none>
 
 XDCH-2#3 Warning
 Same min and max delay values on IO port  
 The same output delay of 0.000 ns has been defined on port 'ads_reset' relative to clock clk_fpga_3 for both max and min. Make sure this reflects the design intent.
 set_output_delay -clock [get_clocks clk_fpga_3] -min 0.000 [get_ports {ads_reset ads_pdwn ads_cs dac_cs spi_sclk spi_mosi}]
-D:/cyx/multi_channel_lockin_amplifier/personal/workspace/battery_eis/rtl/battery_io.xdc (Line: 19)
+D:/workspace/multi_channel_lockin_amplifier/personal/workspace/battery_eis/rtl/battery_io.xdc (Line: 19)
 Related violations: <none>
 
 XDCH-2#4 Warning
 Same min and max delay values on IO port  
 The same output delay of 0.000 ns has been defined on port 'dac_cs' relative to clock clk_fpga_3 for both max and min. Make sure this reflects the design intent.
 set_output_delay -clock [get_clocks clk_fpga_3] -min 0.000 [get_ports {ads_reset ads_pdwn ads_cs dac_cs spi_sclk spi_mosi}]
-D:/cyx/multi_channel_lockin_amplifier/personal/workspace/battery_eis/rtl/battery_io.xdc (Line: 19)
+D:/workspace/multi_channel_lockin_amplifier/personal/workspace/battery_eis/rtl/battery_io.xdc (Line: 19)
 Related violations: <none>
 
 XDCH-2#5 Warning
 Same min and max delay values on IO port  
 The same output delay of 0.000 ns has been defined on port 'spi_mosi' relative to clock clk_fpga_3 for both max and min. Make sure this reflects the design intent.
 set_output_delay -clock [get_clocks clk_fpga_3] -min 0.000 [get_ports {ads_reset ads_pdwn ads_cs dac_cs spi_sclk spi_mosi}]
-D:/cyx/multi_channel_lockin_amplifier/personal/workspace/battery_eis/rtl/battery_io.xdc (Line: 19)
+D:/workspace/multi_channel_lockin_amplifier/personal/workspace/battery_eis/rtl/battery_io.xdc (Line: 19)
 Related violations: <none>
 
 XDCH-2#6 Warning
 Same min and max delay values on IO port  
 The same output delay of 0.000 ns has been defined on port 'spi_sclk' relative to clock clk_fpga_3 for both max and min. Make sure this reflects the design intent.
 set_output_delay -clock [get_clocks clk_fpga_3] -min 0.000 [get_ports {ads_reset ads_pdwn ads_cs dac_cs spi_sclk spi_mosi}]
-D:/cyx/multi_channel_lockin_amplifier/personal/workspace/battery_eis/rtl/battery_io.xdc (Line: 19)
+D:/workspace/multi_channel_lockin_amplifier/personal/workspace/battery_eis/rtl/battery_io.xdc (Line: 19)
 Related violations: <none>
 
 

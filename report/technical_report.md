@@ -2,7 +2,7 @@
 
 <img src="technical_report_assets/media/image20.png" alt="报告页眉标识" width="320">
 
-[下载Word原版](technical_report.docx) · 以下为同一报告的Markdown阅读版，保留正文与图表内容，排版随网页调整。
+[下载Word匿名提交版](technical_report.docx) · 以下为同一报告的Markdown阅读版，保留正文与图表内容，排版随网页调整。
 
 ## 目录
 
@@ -491,9 +491,6 @@ Z(f) = - V_ac / I_ac
 | 19 | 3.536 | 10.26 | 11.46 | 12.28 | 97.28 | 正常 |
 | 20 | 3.789 | 10.14 | 11.39 | 13.14 | 94.08 | 正常 |
 
-![报告插图18](technical_report_assets/media/image18.jpeg)
-
-图 18 20颗电池标记序号
 
 ![报告插图19](technical_report_assets/media/image19.png)
 
