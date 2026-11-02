@@ -4,7 +4,7 @@
   "word_source_sha256": "568a465fda6de4c86e341ccfe98e312f7bc55b475f1f71a0c29afafb011f6642",
   "word_unmodified": true,
   "markdown_file": "report/technical_report.md",
-  "markdown_sha256": "a8597fbfe3fac2a13ef796a8b8dddd0331b189b843149d81e6d77055d10cd1cf",
+  "markdown_sha256": "e3914855394cfd21683114e697126c00918f555a84a98e803a9eb0076e9ea6e3",
   "converter": "Pandoc 3.13",
   "tables_preserved": 9,
   "body_images_preserved": 19,
@@ -12,5 +12,6 @@
   "chapter_entries": 22,
   "table_cell_text_compared": true,
   "images_byte_identical": true,
-  "relative_links_verified": true
+  "relative_links_verified": true,
+  "empty_word_list_artifacts_removed": 2
 }
