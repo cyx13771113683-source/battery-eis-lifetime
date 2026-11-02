@@ -9,7 +9,7 @@
 | 仿真、软件验证与结果 | `sim/`；源码tests/sim及RTL运行脚本 |
 | 综合实现、资源、时序 | `build/reports/`；`build/build.ps1`可复现入口 |
 | 上板产物、运行脚本、实物输出 | `board/be03/`、`board/application/`、`board/README.md`、`data/hardware/normal/`、`data/boot_20261030/`、`data/batch_20/` |
-| 设计原理、划分、优化对比、复现 | `report/technical_report.docx`、`report/design_report.md`及根目录README |
+| 设计原理、划分、优化对比、复现 | `report/technical_report.docx`、`report/technical_report.md`、`report/design_report.md`及根目录README |
 | 技能包的来源、步骤、效果与边界 | `skill/README.md` |
 | 大模型提示词、响应及自我纠错 | `report/collaboration.md` |
 | 许可证与第三方来源 | MIT `LICENSE`、`report/third_party.md`及模型元数据 |

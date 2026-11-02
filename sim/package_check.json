@@ -1,6 +1,6 @@
 {
-  "client_date": "2026-11-01",
-  "files": 323,
+  "client_date": "2026-11-02",
+  "files": 345,
   "naming_errors": [],
   "standard_name_exceptions": [
     "README.md",
@@ -21,7 +21,7 @@
   "completed_cells": 20,
   "raw_attempts": 22,
   "runtime_dependency_closure_verified": true,
-  "technical_report_source_sha256": "c605ef1c6e3c981418493c8e6c79082d74ca1cab75e2a62c69d4efae26e921d8",
+  "technical_report_source_sha256": "568a465fda6de4c86e341ccfe98e312f7bc55b475f1f71a0c29afafb011f6642",
   "technical_report_unmodified": true,
   "excluded": [
     ".git",
@@ -29,5 +29,7 @@
     "python caches",
     "credentials",
     "temporary files"
-  ]
+  ],
+  "technical_report_markdown": "report/technical_report.md",
+  "technical_report_markdown_verified": true
 }
