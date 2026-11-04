@@ -277,7 +277,7 @@ Z(f) = - V_ac / I_ac
 
 ![报告插图12](technical_report_assets/media/image12.png)
 
-<figcaption><p>图 12双频Ridge评估</p></figcaption>
+<figcaption><p>图 12数据异常安全拒判</p></figcaption>
 </figure>
 
 （6）交互呈现与日志模块（app.py）：基于Linux图形与终端接口<sup>\[4\]</sup>，提供800×600 HDMI本地界面，设置首页、设置和记录三个页面，用于显示测量状态、阻抗曲线、SOH估计结果及本次启动后的有效记录。在测试中，ARM端完成800×600界面内存帧绘制的耗时为0.195～0.197秒。界面记录列表在重启时清空，原始测量会话独立保存。程序通过日志与JSON会话记录任务状态、测量结果及相关配置，支持结果复核和异常定位。
@@ -286,7 +286,7 @@ Z(f) = - V_ac / I_ac
 
 ![报告插图13](technical_report_assets/media/image13.png)
 
-<figcaption><p>图 13数据异常安全拒判</p></figcaption>
+<figcaption><p>图 13双频Ridge评估</p></figcaption>
 </figure>
 
 <figure>

@@ -1,10 +1,10 @@
 {
   "status": "PASS",
-  "client_date": "2026-11-03",
-  "word_source_sha256": "58b40fee1cdd603995e436a9e0ab9fcf6a8acd7e1fadc76bc6cc827a3c2113a1",
+  "client_date": "2026-11-04",
+  "word_source_sha256": "1a668ba8ddaaf6ecaf6843ba9e9c79d3b5058c0b761887397b419495f0bd4606",
   "word_unmodified": false,
   "markdown_file": "report/technical_report.md",
-  "markdown_sha256": "6d61f52acb2f66357e038cc9743bda5d08024731272c8ecbb388c0f27759fbc4",
+  "markdown_sha256": "1ef0f1681894a9a1f9765a330dcd029a620ec08f24a18f11c1c7901fca8d53c5",
   "converter": "Pandoc 3.13",
   "tables_preserved": 9,
   "body_images_preserved": 21,
@@ -14,7 +14,7 @@
   "images_byte_identical": true,
   "relative_links_verified": true,
   "empty_word_list_artifacts_removed": 2,
-  "word_submission_sha256": "240bb006bafec99ac1c920693848e8ae19629d9bb9119212b0eb546aa3dac7a9",
+  "word_submission_sha256": "39499439af96bf04f1e5858b36195ab20d28400efd0d2810025a786f83d47bb9",
   "metadata_anonymized": true,
   "location_photo_excluded": true
 }
